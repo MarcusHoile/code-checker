@@ -29,7 +29,10 @@ body {
 	border-top: solid #541F14 2px;
 }
 
-
+textarea {
+	margin: 20px;
+	
+}
 
 #highlight {
 	background: -webkit-radial-gradient(#640202 60%, #000);
