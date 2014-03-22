@@ -35,10 +35,10 @@ textarea {
 }
 
 #highlight {
-	background: -webkit-radial-gradient(#640202 60%, #000);
+	background: -webkit-radial-gradient( #ff0000 45%, #640202 65%, #000);
 	margin-left:18px;
-	border: solid #000 2px;
-	border-bottom: solid #000 4px;
+	/*border: solid #000 2px;*/
+	/*border: solid #000 1px;*/
 	height:260px;
 	width:260px;
 	border-radius:200px;
