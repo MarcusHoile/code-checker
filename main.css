@@ -2,9 +2,29 @@ body {
 	background:#0C0F66;
 	margin:0 auto;
 	text-align:center;
+}
+
+
+#container {
 
 }
 
+#left {
+	width:40%;
+	display:inline-block;
+	margin-top: 40px;
+	margin-left:5%;
+	padding:0;
+	float:left;
+}
+
+#right {
+	width:40%;
+	display:inline-block;
+	margin-right: 15%;
+	padding:0;
+	float:right;
+}
 
 img {
 	height:160px;
@@ -14,13 +34,17 @@ img {
 
 p {
 	color:yellow;
-	font-size: 28px;
+	font-size: 44px;
 	padding:0;
 	margin:15px;
 }
 
+.code-title {
+	font-size: 24px;
+}
+
 #button-container {
-	position:absolute;
+	/*position:absolute;*/
 	width:100%;
 }
 
@@ -39,7 +63,7 @@ p {
 }
 
 textarea {
-	/*margin: 20px;*/
+	margin-bottom: 220px;
 	
 }
 
@@ -51,13 +75,13 @@ textarea {
 	height:260px;
 	width:260px;
 	border-radius:200px;
-	position:absolute;
+	/*position:absolute;*/
 	top:6px;
 }	
 
 #button {
 	background: #CC1E14;
-	position:relative;
+	/*position:relative;*/
 	border-bottom: solid #ff0000 4px;
 	border-top: solid #ff0000 2px;
 	margin-top: 1px;

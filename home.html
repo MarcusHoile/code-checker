@@ -9,25 +9,28 @@
 <body>
 
 	<div id="container">
-		<div id="description">
 			<p>Dump your code. Ken will evaluate.</p>
-			<img src="http://www.whoateallthepies.tv/ken_street_fighter_-_owen_wilson.jpg" alt="">
-		</div>
-		<div id="button-container">
-			<div id="button-edge">
-				<div id="highlight">
-					<div id="button">
-						<div id="button-top-highlight"></div>
-						<div id="button-bottom-highlight"></div>
+			<div id="left">
+				<img src="http://www.whoateallthepies.tv/ken_street_fighter_-_owen_wilson.jpg" alt="">	
+				<div id="button-container">
+					<div id="button-edge">
+						<div id="highlight">
+							<div id="button">
+								<div id="button-top-highlight"></div>
+								<div id="button-bottom-highlight"></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<p>Code goes here:</p>
-			<textarea name="" id="" cols="80" rows="100"></textarea>
-		</div>
-	
-	</div>
+			</div><!-- end of left -->
 
+
+			<div id="right">
+				<p class="code-title">Code goes here:</p>
+				<textarea name="" id="" cols="80" rows="40"></textarea>
+			</div>
+
+	</div>
 	<script>
     $(document).ready(function() {
         var audioElement = document.createElement('audio');
