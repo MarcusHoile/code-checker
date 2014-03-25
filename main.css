@@ -5,9 +5,16 @@ body {
 
 }
 
+
+img {
+	height:160px;
+	width:160px;
+	margin: 20px;
+}
+
 p {
 	color:yellow;
-	font-size: 40px;
+	font-size: 28px;
 	padding:0;
 	margin:15px;
 }
