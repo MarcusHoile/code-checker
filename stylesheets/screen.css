@@ -72,9 +72,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 70px;
   height: 80px;
   /* exactly the size of an image in our sprite */
-  background-image: url("images/ken2.png");
+  background-image: url("images/ken3.png");
   background-position: 0px -80px;
-  margin: 0 auto;
+  margin: 20px auto;
   /*-webkit-animation: stance steps(4) 0.30s infinite;*/
 }
 

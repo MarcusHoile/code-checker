@@ -4,6 +4,7 @@
 	<link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> 
 	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
 	<script type="text/javascript" src="javascripts/jquery.js"></script>
+	<script type="text/javascript" src="javascripts/custom.js"></script>
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
@@ -33,42 +34,25 @@
 		</div>
 
 	</div>
+
 	<script>
 	var $ken;
 	$(document).ready(function() {
 		$ken = $('.ken');
-		// $ken.addClass('stance');
+		$ken.addClass('stance');
 		var audioElement = document.createElement('audio');
 		audioElement.setAttribute('src', 'perfect.mp3');
-        // audioElement.setAttribute('autoplay', 'autoplay');
+    $('#button').click(function() {
+    	$ken.removeClass('stance');
+    	var delay = 500
+    	setTimeout(function(){
+    		audioElement.play();	
+   		}, delay);
+    	buttonPress(bigButton);
+    	perfect();
+    });
 
-        $.get();
 
-        audioElement.addEventListener("load", function() {
-        	audioElement.play();
-        }, true);
-
-        $('#button').click(function() {
-        	audioElement.play();
-        	buttonPress(bigButton)
-        });
-
-        function buttonPress(obj){
-        	var origHeight = obj.style.height;
-        	var origWidth = obj.style.width;
-        	var origMarginLeft = obj.style.left;
-        	var origMarginTop = obj.style.marginTop;
-        	obj.style.height = '161px';
-        	obj.style.width = '161px';
-        	obj.style.marginLeft = '7px';
-        	obj.style.marginTop = '3px';
-        	setTimeout(function(){
-        		obj.style.height = origHeight;
-        		obj.style.width = origWidth;
-        		obj.style.marginLeft = origMarginLeft;
-        		obj.style.marginTop = origMarginTop;
-        	}, 200);
-        }
 
         var bigButton = document.getElementById('button');
       });
@@ -79,8 +63,7 @@ $(document).on('keydown', function(e) {
     	$ken.addClass('punch');
     	setTimeout(function() { $ken.removeClass('punch'); }, 150);
     } else if (e.keyCode === 82) {
-    	$ken.addClass('perfect');
-    	setTimeout(function() { $ken.removeClass('perfect'); }, 600);
+    	
     } else if (e.keyCode === 69) {
     	$ken.addClass('kick');
     	setTimeout(function() { $ken.removeClass('kick'); }, 500);
