@@ -1,0 +1,188 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+.ken { 
+    width:70px; height:80px; /* exactly the size of an image in our sprite */
+    background-image:url('images/ken2.png'); 
+    background-position:0px -80px;
+    margin:0 auto;
+    /*-webkit-animation: stance steps(4) 0.30s infinite;*/
+}
+
+#ken-container {
+	height:160px;
+	width:160px;
+	margin: 20px auto;
+	border:solid 1px black;
+}
+
+@mixin animation($params) { 
+    -webkit-animation:$params;
+    -moz-animation:$params;
+    -ms-animation:$params;
+    animation:$params;
+}
+@mixin keyframes($name) { 
+    @-webkit-keyframes $name { @content }
+    @-moz-keyframes    $name { @content }
+    @-ms-keyframes     $name { @content }
+    @keyframes         $name { @content }
+}
+
+$spriteWidth:70px;
+$spriteHeight:80px;
+
+@mixin anim($animName, $steps, $animNbr, $animParams){
+    .#{$animName} { 
+        @content;
+        @include animation($animName steps($steps) $animParams); 
+    }
+    @include keyframes($animName) {
+        from { background-position:0px (-$spriteHeight * ($animNbr - 1)); }
+        to { background-position:-($spriteWidth * $steps) (-$spriteHeight * ($animNbr - 1)); }
+    }
+}
+
+/* stance */
+@include anim($animName:stance, $steps:4, $animNbr:2, $animParams:.48s infinite);
+/* perfect */
+@include anim($animName:perfect, $steps:3, $animNbr:11, $animParams:.6s);
+/* punch */
+@include anim($animName:punch, $steps:3, $animNbr:3, $animParams:.15s infinite);
+/* kick */
+@include anim($animName:kick, $steps:5, $animNbr:7, $animParams:.5s infinite);
+/* hadoken */
+@include anim($animName:hadoken, $steps:4, $animNbr:1, $animParams:.5s infinite);
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+	background:#0C0F66;
+	margin:0 auto;
+	text-align:center;
+}
+
+
+#container {
+
+}
+
+#left {
+	width:40%;
+	display:inline-block;
+	margin-top: 40px;
+	margin-left:5%;
+	padding:0;
+	float:left;
+}
+
+#right {
+	width:40%;
+	display:inline-block;
+	margin-right: 15%;
+	padding:0;
+	float:right;
+}
+
+img {
+	height:160px;
+	width:160px;
+	margin: 20px;
+}
+
+p {
+	color:yellow;
+	font-size: 44px;
+	padding:0;
+	margin:15px;
+}
+
+.code-title {
+	font-size: 24px;
+}
+
+#button-container {
+	/*position:absolute;*/
+	width:100%;
+}
+
+#button-edge {
+	margin: 0 auto;
+	/*position:absolute;*/
+
+	height: 200px;
+	width:200px;
+	border-radius:200px;
+	background: #CC1E14;
+	line-height:200px;
+	text-align:center;
+	border-bottom: solid #FF6400 3px;
+	border-top: solid #541F14 2px;
+}
+
+textarea {
+	margin-bottom: 220px;
+	font-size:14px;
+	
+}
+
+#highlight {
+	background: -webkit-radial-gradient( #ff0000 55%, #640202 68%, #000);
+	margin-left:12px;
+	/*border: solid #000 2px;*/
+	/*border: solid #000 1px;*/
+	height:173px;
+	width:173px;
+	border-radius:200px;
+	/*position:absolute;*/
+	top:4px;
+}	
+
+#button {
+	background: #CC1E14;
+	/*position:relative;*/
+	border-bottom: solid #ff0000 4px;
+	border-top: solid #ff0000 2px;
+	margin-top: 1px;
+	margin-left:8px;
+	height: 157px;
+	width:157px;
+	border-radius:200px;
+}
+
+#button-top-highlight {
+	margin-top:4px;
+	width: 133px;
+	height:67px;
+	margin-left: 11px;
+	border-top-left-radius: 200px;
+	border-top-right-radius: 200px;
+	background: -webkit-linear-gradient(bottom,rgba(255,255,255,0) 60%,rgba(255,255,255,0.4));
+}
+
+#button-bottom-highlight {
+	margin-top:17px;
+	width: 133px;
+	height:67px;
+	margin-left: 11px;
+	border-bottom-left-radius: 200px;
+	border-bottom-right-radius: 200px;
+	background: -webkit-linear-gradient(top,rgba(255,0,0,0) 60%, rgba(100,2,2,0.4));
+}
+
+
+
+

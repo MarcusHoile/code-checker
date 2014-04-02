@@ -1,0 +1,17 @@
+/* ----------------------------------------------------
+   created with http://www.codeandweb.com/texturepacker 
+   ----------------------------------------------------
+   $TexturePacker:SmartUpdate:6af09f262ca88095f6bd1e45035f8452:5ddd3fbbbfa0dcf8d7193af2d259ce09:5f7f7718ec3162c4e8c332df350e32d0$
+   ----------------------------------------------------
+
+   usage: <span class="{-spritename-} sprite"></span>
+
+   replace {-spritename-} with the sprite you like to use
+
+*/
+
+.sprite {display:inline-block; overflow:hidden; background-repeat: no-repeat;background-image:url(ken-test.png);}
+
+.ken-perfect-step1 {width:47px; height:80px; background-position: -105px -1px}
+.ken-perfect-step2 {width:49px; height:95px; background-position: -54px -1px}
+.ken-perfect-step3 {width:51px; height:96px; background-position: -1px -1px}

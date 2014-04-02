@@ -1,0 +1,492 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 8, ../sass/screen.scss */
+.ken {
+  width: 70px;
+  height: 80px;
+  /* exactly the size of an image in our sprite */
+  background-image: url("images/ken2.png");
+  background-position: 0px -80px;
+  margin: 0 auto;
+  /*-webkit-animation: stance steps(4) 0.30s infinite;*/
+}
+
+/* line 16, ../sass/screen.scss */
+#ken-container {
+  height: 160px;
+  width: 160px;
+  margin: 20px auto;
+  border: solid 1px black;
+}
+
+/* stance */
+/* line 40, ../sass/screen.scss */
+.stance {
+  -webkit-animation: stance steps(4) 0.48s infinite;
+  -moz-animation: stance steps(4) 0.48s infinite;
+  -ms-animation: stance steps(4) 0.48s infinite;
+  animation: stance steps(4) 0.48s infinite;
+}
+
+@-webkit-keyframes stance {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -80px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -280px -80px;
+  }
+}
+
+@-moz-keyframes stance {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -80px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -280px -80px;
+  }
+}
+
+@-ms-keyframes stance {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -80px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -280px -80px;
+  }
+}
+
+@keyframes stance {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -80px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -280px -80px;
+  }
+}
+
+/* perfect */
+/* line 40, ../sass/screen.scss */
+.perfect {
+  -webkit-animation: perfect steps(3) 0.6s;
+  -moz-animation: perfect steps(3) 0.6s;
+  -ms-animation: perfect steps(3) 0.6s;
+  animation: perfect steps(3) 0.6s;
+}
+
+@-webkit-keyframes perfect {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -800px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -210px -800px;
+  }
+}
+
+@-moz-keyframes perfect {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -800px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -210px -800px;
+  }
+}
+
+@-ms-keyframes perfect {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -800px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -210px -800px;
+  }
+}
+
+@keyframes perfect {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -800px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -210px -800px;
+  }
+}
+
+/* punch */
+/* line 40, ../sass/screen.scss */
+.punch {
+  -webkit-animation: punch steps(3) 0.15s infinite;
+  -moz-animation: punch steps(3) 0.15s infinite;
+  -ms-animation: punch steps(3) 0.15s infinite;
+  animation: punch steps(3) 0.15s infinite;
+}
+
+@-webkit-keyframes punch {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -160px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -210px -160px;
+  }
+}
+
+@-moz-keyframes punch {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -160px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -210px -160px;
+  }
+}
+
+@-ms-keyframes punch {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -160px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -210px -160px;
+  }
+}
+
+@keyframes punch {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -160px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -210px -160px;
+  }
+}
+
+/* kick */
+/* line 40, ../sass/screen.scss */
+.kick {
+  -webkit-animation: kick steps(5) 0.5s infinite;
+  -moz-animation: kick steps(5) 0.5s infinite;
+  -ms-animation: kick steps(5) 0.5s infinite;
+  animation: kick steps(5) 0.5s infinite;
+}
+
+@-webkit-keyframes kick {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -480px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -350px -480px;
+  }
+}
+
+@-moz-keyframes kick {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -480px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -350px -480px;
+  }
+}
+
+@-ms-keyframes kick {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -480px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -350px -480px;
+  }
+}
+
+@keyframes kick {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px -480px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -350px -480px;
+  }
+}
+
+/* hadoken */
+/* line 40, ../sass/screen.scss */
+.hadoken {
+  -webkit-animation: hadoken steps(4) 0.5s infinite;
+  -moz-animation: hadoken steps(4) 0.5s infinite;
+  -ms-animation: hadoken steps(4) 0.5s infinite;
+  animation: hadoken steps(4) 0.5s infinite;
+}
+
+@-webkit-keyframes hadoken {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px 0px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -280px 0px;
+  }
+}
+
+@-moz-keyframes hadoken {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px 0px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -280px 0px;
+  }
+}
+
+@-ms-keyframes hadoken {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px 0px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -280px 0px;
+  }
+}
+
+@keyframes hadoken {
+  /* line 45, ../sass/screen.scss */
+  from {
+    background-position: 0px 0px;
+  }
+
+  /* line 46, ../sass/screen.scss */
+  to {
+    background-position: -280px 0px;
+  }
+}
+
+/* line 72, ../sass/screen.scss */
+body {
+  background: #0C0F66;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* line 83, ../sass/screen.scss */
+#left {
+  width: 40%;
+  display: inline-block;
+  margin-top: 40px;
+  margin-left: 5%;
+  padding: 0;
+  float: left;
+}
+
+/* line 92, ../sass/screen.scss */
+#right {
+  width: 40%;
+  display: inline-block;
+  margin-right: 15%;
+  padding: 0;
+  float: right;
+}
+
+/* line 100, ../sass/screen.scss */
+img {
+  height: 160px;
+  width: 160px;
+  margin: 20px;
+}
+
+/* line 106, ../sass/screen.scss */
+p {
+  color: yellow;
+  font-size: 44px;
+  padding: 0;
+  margin: 15px;
+}
+
+/* line 113, ../sass/screen.scss */
+.code-title {
+  font-size: 24px;
+}
+
+/* line 117, ../sass/screen.scss */
+#button-container {
+  /*position:absolute;*/
+  width: 100%;
+}
+
+/* line 122, ../sass/screen.scss */
+#button-edge {
+  margin: 0 auto;
+  /*position:absolute;*/
+  height: 200px;
+  width: 200px;
+  border-radius: 200px;
+  background: #CC1E14;
+  line-height: 200px;
+  text-align: center;
+  border-bottom: solid #FF6400 3px;
+  border-top: solid #541F14 2px;
+}
+
+/* line 136, ../sass/screen.scss */
+textarea {
+  margin-bottom: 220px;
+  font-size: 14px;
+}
+
+/* line 142, ../sass/screen.scss */
+#highlight {
+  background: -webkit-radial-gradient(red 55%, #640202 68%, black);
+  margin-left: 12px;
+  /*border: solid #000 2px;*/
+  /*border: solid #000 1px;*/
+  height: 173px;
+  width: 173px;
+  border-radius: 200px;
+  /*position:absolute;*/
+  top: 4px;
+}
+
+/* line 154, ../sass/screen.scss */
+#button {
+  background: #CC1E14;
+  /*position:relative;*/
+  border-bottom: solid #ff0000 4px;
+  border-top: solid #ff0000 2px;
+  margin-top: 1px;
+  margin-left: 8px;
+  height: 157px;
+  width: 157px;
+  border-radius: 200px;
+}
+
+/* line 166, ../sass/screen.scss */
+#button-top-highlight {
+  margin-top: 4px;
+  width: 133px;
+  height: 67px;
+  margin-left: 11px;
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+  background: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.4));
+}
+
+/* line 176, ../sass/screen.scss */
+#button-bottom-highlight {
+  margin-top: 17px;
+  width: 133px;
+  height: 67px;
+  margin-left: 11px;
+  border-bottom-left-radius: 200px;
+  border-bottom-right-radius: 200px;
+  background: -webkit-linear-gradient(top, rgba(255, 0, 0, 0) 60%, rgba(100, 2, 2, 0.4));
+}

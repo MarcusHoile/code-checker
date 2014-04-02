@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> 
+	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
+	<script type="text/javascript" src="javascripts/jquery.js"></script>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="container">
+		<p>Dump your code. Ken will evaluate.</p>
+		<div id="left">
+			<div id="ken-container">
+				<div class="ken"></div>
+			</div>
+			<div id="button-container">
+				<div id="button-edge">
+					<div id="highlight">
+						<div id="button">
+							<div id="button-top-highlight"></div>
+							<div id="button-bottom-highlight"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- end of left -->
+
+
+		<div id="right">
+			<p class="code-title">Code goes here:</p>
+			<textarea name="" id="" cols="60" rows="40"></textarea>
+		</div>
+
+	</div>
+	<script>
+	var $ken;
+	$(document).ready(function() {
+		$ken = $('.ken');
+		// $ken.addClass('stance');
+		var audioElement = document.createElement('audio');
+		audioElement.setAttribute('src', 'perfect.mp3');
+        // audioElement.setAttribute('autoplay', 'autoplay');
+
+        $.get();
+
+        audioElement.addEventListener("load", function() {
+        	audioElement.play();
+        }, true);
+
+        $('#button').click(function() {
+        	audioElement.play();
+        	buttonPress(bigButton)
+        });
+
+        function buttonPress(obj){
+        	var origHeight = obj.style.height;
+        	var origWidth = obj.style.width;
+        	var origMarginLeft = obj.style.left;
+        	var origMarginTop = obj.style.marginTop;
+        	obj.style.height = '161px';
+        	obj.style.width = '161px';
+        	obj.style.marginLeft = '7px';
+        	obj.style.marginTop = '3px';
+        	setTimeout(function(){
+        		obj.style.height = origHeight;
+        		obj.style.width = origWidth;
+        		obj.style.marginLeft = origMarginLeft;
+        		obj.style.marginTop = origMarginTop;
+        	}, 200);
+        }
+
+        var bigButton = document.getElementById('button');
+      });
+$(document).on('keydown', function(e) {
+	
+
+    if (e.keyCode === 68) { // 68 is the letter D on the keyboard
+    	$ken.addClass('punch');
+    	setTimeout(function() { $ken.removeClass('punch'); }, 150);
+    } else if (e.keyCode === 82) {
+    	$ken.addClass('perfect');
+    	setTimeout(function() { $ken.removeClass('perfect'); }, 600);
+    } else if (e.keyCode === 69) {
+    	$ken.addClass('kick');
+    	setTimeout(function() { $ken.removeClass('kick'); }, 500);
+    } else if (e.keyCode === 83) {
+    	$ken.addClass('hadoken');
+    	setTimeout(function() { $ken.removeClass('hadoken'); }, 500);
+    }
+  });
+</script>
+</body>
+</html>
