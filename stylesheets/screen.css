@@ -417,7 +417,7 @@ body {
 
 /* line 116, ../sass/screen.scss */
 #left {
-  width: 40%;
+  width: 25%;
   display: inline-block;
   margin-top: 40px;
   margin-left: 5%;
@@ -427,7 +427,7 @@ body {
 
 /* line 125, ../sass/screen.scss */
 #right {
-  width: 40%;
+  width: 55%;
   display: inline-block;
   margin-right: 15%;
   padding: 0;

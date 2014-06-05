@@ -3,7 +3,8 @@
 <head>
 	<title>Code Checker</title>
 	<link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> 
-	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
+	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="stylesheets/simplegrid.css" rel="stylesheet" type="text/css"> 
 	<script type="text/javascript" src="javascripts/jquery.js"></script>
 	<script type="text/javascript" src="javascripts/custom.js"></script>
 
@@ -11,17 +12,24 @@
 	<title>Document</title>
 </head>
 <body>
-	<div id="container">
-			<div id="reboot">Reset</div>
-
+	<div class="col-1-1">
+		<p>site title here</p>
+		<div id="reboot">Reset</div>		
+	</div>
 		<p>Dump your code. Ken will evaluate.</p>
-		<div id="left">
-			<div id="ken-container">
-				<div class="ken"></div>
-				<div id="result-container">
+	<div class="col-1-1">
+						<div id="result-container">
 					<img src="assets/perfect1.gif" alt="" id="result">
 					<div id="try-again">Try Again</div>
 				</div>
+	</div>
+	<div class="col-1-1"></div>
+	<div class="grid">
+		<div class="col-3-12">
+		<div id="ken-container">
+
+				<div class="ken"></div>
+
 			</div>
 			<div id="button-container">
 				<div id="button-edge">
@@ -33,15 +41,27 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="col-9-12">
+			<div class="col-9-12">
+			<textarea name="" id="code" cols="60" rows="40" placeholder="ENTER YOUR CODE HERE, IF YOU DARE!"></textarea>
+			</div>
+			<div class="col-3-12">
+				<p>copy pointing back at code</p>
+			</div>
+		</div>
+	</div>
+
+		<div id="left">
+	
 		</div><!-- end of left -->
 
 
 		<div id="right">
 			<p class="code-title">Code goes here:</p>
-			<textarea name="" id="code" cols="60" rows="40"></textarea>
 		</div>
 
-	</div>
+
 
 	<script>
 	var $ken;
@@ -58,15 +78,19 @@
 
 		var bigButton = document.getElementById('button');
 		var $reboot = $('#reboot').on('click', function() {
-			$ken.addClass('stance');
-			$result.css("display", "none");
+			reboot();
 		});
+
 		$ken.addClass('stance');
 		audioElement.setAttribute('src', 'assets/perfect.mp3');
-		$('#button').click(function() {
-			var random = Math.random();
-			buttonPress(bigButton);
-			codeCheck();
+
+		$('#button').on('click', function() {
+			if ($result.css("display") ==  "block") {
+				reboot();
+			} else {
+				buttonPress(bigButton);
+				codeCheck();
+			}
 		});
 	});
 	</script>

@@ -31,11 +31,10 @@ function noCode() {
 }
 
 function tryAgain() {
-    // clearTimeout(timeout);
     $tryAgain.css("display", "block");
     setTimeout(function(){
         $tryAgain.css("display", "none")}, 800
-    ); // .delay(1000).css("display", "none");
+    ); 
 }
 
 function codeCheck() {
@@ -43,10 +42,6 @@ function codeCheck() {
     $result.val();
     if ($code.val() == "") {
         noCode();
-    // } else if ($code.css("display") == "block") {
-    // } else if ($result.css("display") == "block") {
-
-
     } else if (random <= 0.25) {
         $ken.addClass('punch');
         setTimeout(function() { $ken.removeClass('punch'); }, 150);
@@ -71,3 +66,15 @@ function codeCheck() {
         perfect();
     }
 }
+
+function reboot() {
+    $ken.addClass('stance');
+    $result.css("display", "none");
+    destroyCode();
+}
+
+
+
+
+
+
