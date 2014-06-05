@@ -13,6 +13,10 @@ function buttonPress(obj){
         obj.style.marginLeft = origMarginLeft;
         obj.style.marginTop = origMarginTop;
     }, 200);
+    setTimeout(function() {
+        codeCheck()
+    }, 200);
+
 }
 
 function perfect() {
@@ -34,7 +38,7 @@ function tryAgain() {
     $tryAgain.css("display", "block");
     setTimeout(function(){
         $tryAgain.css("display", "none")}, 800
-    ); 
+        ); 
 }
 
 function codeCheck() {

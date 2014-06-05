@@ -12,24 +12,25 @@
 	<title>Document</title>
 </head>
 <body>
-	<div class="col-1-1">
-		<p>site title here</p>
+	<div class="col-1-1" id="header">
+		<h1>site title here</h1>
 		<div id="reboot">Reset</div>		
 	</div>
-		<p>Dump your code. Ken will evaluate.</p>
 	<div class="col-1-1">
-						<div id="result-container">
-					<img src="assets/perfect1.gif" alt="" id="result">
-					<div id="try-again">Try Again</div>
-				</div>
+		<p>Dump your code. Ken will evaluate.</p>
+
 	</div>
-	<div class="col-1-1"></div>
+	<div class="col-1-1 result-bar">
+		<div id="result-container">
+			<img src="assets/perfect1.gif" alt="" id="result">
+			<div id="try-again">Try Again</div>
+		</div>
+	</div>
 	<div class="grid">
-		<div class="col-3-12">
-		<div id="ken-container">
-
-				<div class="ken"></div>
-
+		<div class="col-3-12 controls">
+			<div id="ken-container">
+				<div class="ken">
+				</div>
 			</div>
 			<div id="button-container">
 				<div id="button-edge">
@@ -44,22 +45,34 @@
 		</div>
 		<div class="col-9-12">
 			<div class="col-9-12">
-			<textarea name="" id="code" cols="60" rows="40" placeholder="ENTER YOUR CODE HERE, IF YOU DARE!"></textarea>
+				<textarea name="" id="code" cols="80" rows="40" placeholder="ENTER YOUR CODE HERE, IF YOU DARE!"></textarea>
 			</div>
 			<div class="col-3-12">
-				<p>copy pointing back at code</p>
+				<div class="col-1-12" id="pointers">
+					<p><</p>
+					<p><</p>
+					<p><</p>
+					<p><</p>
+					<p><</p>
+					<p><</p>
+					<p><</p>
+					<p><</p>
+
+				</div>
+				<div class="col-11-12"></div>
+				<p id="cta">copy pointing back at code</p>
 			</div>
 		</div>
 	</div>
 
-		<div id="left">
-	
-		</div><!-- end of left -->
+	<div id="left">
+
+	</div><!-- end of left -->
 
 
-		<div id="right">
-			<p class="code-title">Code goes here:</p>
-		</div>
+	<div id="right">
+		<p class="code-title">Code goes here:</p>
+	</div>
 
 
 
@@ -89,7 +102,6 @@
 				reboot();
 			} else {
 				buttonPress(bigButton);
-				codeCheck();
 			}
 		});
 	});
