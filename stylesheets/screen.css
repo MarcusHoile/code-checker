@@ -67,7 +67,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 13, ../sass/screen.scss */
+/* line 17, ../sass/screen.scss */
 .ken {
   width: 70px;
   height: 80px;
@@ -75,34 +75,50 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background-image: url("images/ken3.png");
   background-position: 0px -80px;
   margin: 20px auto;
-  /*-webkit-animation: stance steps(4) 0.30s infinite;*/
 }
-
-/* line 21, ../sass/screen.scss */
-#ken-container {
+/* line 22, ../sass/screen.scss */
+.ken img {
   height: 160px;
   width: 160px;
+  margin: 20px;
+}
+
+/* line 29, ../sass/screen.scss */
+#result-container {
+  width: 100%;
+  height: 60px;
+}
+/* line 32, ../sass/screen.scss */
+#result-container #result {
+  margin: 0 auto;
+  display: none;
+}
+
+/* line 38, ../sass/screen.scss */
+#ken-container {
   margin: 20px auto;
 }
 
-/* line 27, ../sass/screen.scss */
+/* line 42, ../sass/screen.scss */
 #reboot {
+  position: absolute;
+  top: 0;
+  left: 20px;
   margin: 20px auto;
   line-height: 40px;
   height: 40px;
   width: 100px;
-  background: #1732e1;
+  background: #79cc31;
   color: white;
 }
-/* line 34, ../sass/screen.scss */
+/* line 52, ../sass/screen.scss */
 #reboot:hover {
   cursor: pointer;
-  background: #1228b3;
-  color: #333333;
+  background: #61a327;
 }
 
 /* stance */
-/* line 59, ../sass/screen.scss */
+/* line 76, ../sass/screen.scss */
 .stance {
   -webkit-animation: stance steps(4) 0.48s infinite;
   -moz-animation: stance steps(4) 0.48s infinite;
@@ -111,55 +127,55 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-webkit-keyframes stance {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -80px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -280px -80px;
   }
 }
 
 @-moz-keyframes stance {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -80px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -280px -80px;
   }
 }
 
 @-ms-keyframes stance {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -80px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -280px -80px;
   }
 }
 
 @keyframes stance {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -80px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -280px -80px;
   }
 }
 
 /* perfect */
-/* line 59, ../sass/screen.scss */
+/* line 76, ../sass/screen.scss */
 .perfect {
   -webkit-animation: perfect steps(3) 0.6s;
   -moz-animation: perfect steps(3) 0.6s;
@@ -168,55 +184,55 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-webkit-keyframes perfect {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -800px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -210px -800px;
   }
 }
 
 @-moz-keyframes perfect {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -800px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -210px -800px;
   }
 }
 
 @-ms-keyframes perfect {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -800px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -210px -800px;
   }
 }
 
 @keyframes perfect {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -800px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -210px -800px;
   }
 }
 
 /* punch */
-/* line 59, ../sass/screen.scss */
+/* line 76, ../sass/screen.scss */
 .punch {
   -webkit-animation: punch steps(3) 0.15s infinite;
   -moz-animation: punch steps(3) 0.15s infinite;
@@ -225,55 +241,55 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-webkit-keyframes punch {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -160px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -210px -160px;
   }
 }
 
 @-moz-keyframes punch {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -160px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -210px -160px;
   }
 }
 
 @-ms-keyframes punch {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -160px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -210px -160px;
   }
 }
 
 @keyframes punch {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -160px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -210px -160px;
   }
 }
 
 /* kick */
-/* line 59, ../sass/screen.scss */
+/* line 76, ../sass/screen.scss */
 .kick {
   -webkit-animation: kick steps(5) 0.5s infinite;
   -moz-animation: kick steps(5) 0.5s infinite;
@@ -282,55 +298,55 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-webkit-keyframes kick {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -480px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -350px -480px;
   }
 }
 
 @-moz-keyframes kick {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -480px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -350px -480px;
   }
 }
 
 @-ms-keyframes kick {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -480px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -350px -480px;
   }
 }
 
 @keyframes kick {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px -480px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -350px -480px;
   }
 }
 
 /* hadoken */
-/* line 59, ../sass/screen.scss */
+/* line 76, ../sass/screen.scss */
 .hadoken {
   -webkit-animation: hadoken steps(4) 0.5s infinite;
   -moz-animation: hadoken steps(4) 0.5s infinite;
@@ -339,54 +355,54 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-webkit-keyframes hadoken {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px 0px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -280px 0px;
   }
 }
 
 @-moz-keyframes hadoken {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px 0px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -280px 0px;
   }
 }
 
 @-ms-keyframes hadoken {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px 0px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -280px 0px;
   }
 }
 
 @keyframes hadoken {
-  /* line 64, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   from {
     background-position: 0px 0px;
   }
 
-  /* line 65, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   to {
     background-position: -280px 0px;
   }
 }
 
-/* line 91, ../sass/screen.scss */
+/* line 100, ../sass/screen.scss */
 body {
   background: #0c0f66;
   margin: 0 auto;
@@ -394,7 +410,7 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
-/* line 103, ../sass/screen.scss */
+/* line 112, ../sass/screen.scss */
 #left {
   width: 40%;
   display: inline-block;
@@ -404,7 +420,7 @@ body {
   float: left;
 }
 
-/* line 112, ../sass/screen.scss */
+/* line 121, ../sass/screen.scss */
 #right {
   width: 40%;
   display: inline-block;
@@ -413,14 +429,7 @@ body {
   float: right;
 }
 
-/* line 120, ../sass/screen.scss */
-img {
-  height: 160px;
-  width: 160px;
-  margin: 20px;
-}
-
-/* line 126, ../sass/screen.scss */
+/* line 131, ../sass/screen.scss */
 p {
   color: yellow;
   font-size: 44px;
@@ -428,81 +437,75 @@ p {
   margin: 15px;
 }
 
-/* line 133, ../sass/screen.scss */
+/* line 138, ../sass/screen.scss */
 .code-title {
   font-size: 24px;
 }
 
-/* line 137, ../sass/screen.scss */
+/* line 142, ../sass/screen.scss */
 #button-container {
-  /*position:absolute;*/
   width: 100%;
 }
 
-/* line 142, ../sass/screen.scss */
+/* line 146, ../sass/screen.scss */
 #button-edge {
   margin: 0 auto;
-  /*position:absolute;*/
-  height: 200px;
-  width: 200px;
-  border-radius: 200px;
-  background: #CC1E14;
-  line-height: 200px;
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+  background: #cc1e14;
+  line-height: 100px;
   text-align: center;
   border-bottom: solid #FF6400 3px;
   border-top: solid #541F14 2px;
 }
 
-/* line 156, ../sass/screen.scss */
+/* line 158, ../sass/screen.scss */
 textarea {
   margin-bottom: 220px;
   font-size: 14px;
 }
 
-/* line 162, ../sass/screen.scss */
+/* line 164, ../sass/screen.scss */
 #highlight {
   background: -webkit-radial-gradient(red 55%, #640202 68%, black);
-  margin-left: 12px;
-  /*border: solid #000 2px;*/
-  /*border: solid #000 1px;*/
-  height: 173px;
-  width: 173px;
-  border-radius: 200px;
-  /*position:absolute;*/
-  top: 4px;
+  margin-left: 6px;
+  height: 86.5px;
+  width: 86.5px;
+  border-radius: 100px;
+  top: 2px;
 }
 
-/* line 174, ../sass/screen.scss */
+/* line 173, ../sass/screen.scss */
 #button {
-  background: #CC1E14;
-  /*position:relative;*/
-  border-bottom: solid #ff0000 4px;
-  border-top: solid #ff0000 2px;
-  margin-top: 1px;
-  margin-left: 8px;
-  height: 157px;
-  width: 157px;
-  border-radius: 200px;
+  background: #cc1e14;
+  border-bottom: solid red 4px;
+  border-top: solid red 2px;
+  margin-top: 0.5px;
+  margin-left: 4px;
+  height: 78.5px;
+  width: 78.5px;
+  border-radius: 100px;
 }
 
-/* line 186, ../sass/screen.scss */
+/* line 184, ../sass/screen.scss */
 #button-top-highlight {
-  margin-top: 4px;
-  width: 133px;
-  height: 67px;
-  margin-left: 11px;
-  border-top-left-radius: 200px;
-  border-top-right-radius: 200px;
+  margin-top: 2px;
+  width: 66.5px;
+  height: 33.5px;
+  margin-left: 5.5px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
   background: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.4));
 }
 
-/* line 196, ../sass/screen.scss */
+/* line 194, ../sass/screen.scss */
 #button-bottom-highlight {
-  margin-top: 17px;
-  width: 133px;
-  height: 67px;
-  margin-left: 11px;
-  border-bottom-left-radius: 200px;
-  border-bottom-right-radius: 200px;
+  margin-top: 8.5px;
+  width: 66.5px;
+  height: 33.5px;
+  margin-left: 5.5px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
   background: -webkit-linear-gradient(top, rgba(255, 0, 0, 0) 60%, rgba(100, 2, 2, 0.4));
 }

@@ -12,10 +12,15 @@
 </head>
 <body>
 	<div id="container">
+			<div id="reboot">Reset</div>
+
 		<p>Dump your code. Ken will evaluate.</p>
 		<div id="left">
 			<div id="ken-container">
 				<div class="ken"></div>
+				<div id="result-container">
+					<img src="assets/perfect1.gif" alt="" id="result">
+				</div>
 			</div>
 			<div id="button-container">
 				<div id="button-edge">
@@ -27,13 +32,12 @@
 					</div>
 				</div>
 			</div>
-			<div id="reboot">Reset</div>
 		</div><!-- end of left -->
 
 
 		<div id="right">
 			<p class="code-title">Code goes here:</p>
-			<textarea name="" id="" cols="60" rows="40"></textarea>
+			<textarea name="" id="code" cols="60" rows="40"></textarea>
 		</div>
 
 	</div>
@@ -41,15 +45,21 @@
 	<script>
 	var $ken;
 	var audioElement = document.createElement('audio');
+	var $result;
+	var $code;
 
 	$(document).ready(function() {
 		$ken = $('.ken');
+		$result = $('#result');
+		$code = $('#code')
+
 		var bigButton = document.getElementById('button');
 		var $reboot = $('#reboot').on('click', function() {
 			$ken.addClass('stance');
+			$result.css("display", "none");
 		});
 		$ken.addClass('stance');
-		audioElement.setAttribute('src', 'perfect.mp3');
+		audioElement.setAttribute('src', 'assets/perfect.mp3');
 		$('#button').click(function() {
 			var random = Math.random();
 			buttonPress(bigButton);

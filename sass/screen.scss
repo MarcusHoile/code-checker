@@ -6,25 +6,43 @@
 @import "compass/reset";
 
 $bg-color-1: #0C0F66;
-$bg-color-2: #1732E1;
+$bg-color-2: #79CC31;
+$button-bg-color: #CC1E14;
+$button-border: #ff0000;
 $font-color-1: #fff;
 $font-color-2: yellow;
 $font-family: Helvetica, sans-serif;
+$button-size:100px;
+
 .ken { 
-    width:70px; height:80px; /* exactly the size of an image in our sprite */
-    background-image:url('images/ken3.png'); 
-    background-position: 0px -80px;
-    margin:20px auto;
-    /*-webkit-animation: stance steps(4) 0.30s infinite;*/
+	width:70px; height:80px; /* exactly the size of an image in our sprite */
+	background-image:url('images/ken3.png'); 
+	background-position: 0px -80px;
+	margin:20px auto;
+	img {
+		height:160px;
+		width:160px;
+		margin: 20px;
+	}
+}
+
+#result-container {
+	width: 100%;
+	height: 60px;
+	#result {
+		margin: 0 auto;
+		display:none;
+	}
 }
 
 #ken-container {
-	height:160px;
-	width:160px;
 	margin: 20px auto;
 }
 
 #reboot {
+	position: absolute;
+	top: 0;
+	left: 20px;
 	margin: 20px auto;
 	line-height: 40px;
 	height: 40px;
@@ -34,7 +52,6 @@ $font-family: Helvetica, sans-serif;
 	&:hover {
 		cursor:pointer;
 		background: darken($bg-color-2, 10%);
-		color: darken($font-color-1, 80%);
 	}
 
 }
@@ -80,14 +97,6 @@ $spriteHeight:80px;
 
 
 
-
-
-
-
-
-
-
-
 body {
 	background: $bg-color-1;
 	margin:0 auto;
@@ -117,11 +126,7 @@ body {
 	float:right;
 }
 
-img {
-	height:160px;
-	width:160px;
-	margin: 20px;
-}
+
 
 p {
 	color:$font-color-2;
@@ -135,19 +140,16 @@ p {
 }
 
 #button-container {
-	/*position:absolute;*/
 	width:100%;
 }
 
 #button-edge {
 	margin: 0 auto;
-	/*position:absolute;*/
-
-	height: 200px;
-	width:200px;
-	border-radius:200px;
-	background: #CC1E14;
-	line-height:200px;
+	height: $button-size;
+	width:$button-size;
+	border-radius:$button-size;
+	background: $button-bg-color;
+	line-height:$button-size;
 	text-align:center;
 	border-bottom: solid #FF6400 3px;
 	border-top: solid #541F14 2px;
@@ -161,45 +163,41 @@ textarea {
 
 #highlight {
 	background: -webkit-radial-gradient( #ff0000 55%, #640202 68%, #000);
-	margin-left:12px;
-	/*border: solid #000 2px;*/
-	/*border: solid #000 1px;*/
-	height:173px;
-	width:173px;
-	border-radius:200px;
-	/*position:absolute;*/
-	top:4px;
+	margin-left:$button-size * 0.06;
+	height:($button-size * 0.865);
+	width:($button-size * 0.865);
+	border-radius:$button-size;
+	top:$button-size * 0.02;
 }	
 
 #button {
-	background: #CC1E14;
-	/*position:relative;*/
-	border-bottom: solid #ff0000 4px;
-	border-top: solid #ff0000 2px;
-	margin-top: 1px;
-	margin-left:8px;
-	height: 157px;
-	width:157px;
-	border-radius:200px;
+	background: $button-bg-color;
+	border-bottom: solid $button-border 4px;
+	border-top: solid $button-border 2px;
+	margin-top: $button-size * 0.005;
+	margin-left: $button-size * 0.04;
+	height: $button-size * 0.785;
+	width:$button-size * 0.785;
+	border-radius:$button-size;
 }
 
 #button-top-highlight {
-	margin-top:4px;
-	width: 133px;
-	height:67px;
-	margin-left: 11px;
-	border-top-left-radius: 200px;
-	border-top-right-radius: 200px;
+	margin-top: $button-size * 0.02;
+	width: $button-size * 0.665;
+	height: $button-size * 0.335;
+	margin-left: $button-size * 0.055;
+	border-top-left-radius: $button-size;
+	border-top-right-radius: $button-size;
 	background: -webkit-linear-gradient(bottom,rgba(255,255,255,0) 60%,rgba(255,255,255,0.4));
 }
 
 #button-bottom-highlight {
-	margin-top:17px;
-	width: 133px;
-	height:67px;
-	margin-left: 11px;
-	border-bottom-left-radius: 200px;
-	border-bottom-right-radius: 200px;
+	margin-top:$button-size * 0.085;
+	width: $button-size * 0.665;
+	height: $button-size * 0.335;
+	margin-left: $button-size * 0.055;
+	border-bottom-left-radius: $button-size;
+	border-bottom-right-radius: $button-size;
 	background: -webkit-linear-gradient(top,rgba(255,0,0,0) 60%, rgba(100,2,2,0.4));
 }
 
