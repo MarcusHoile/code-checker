@@ -5,6 +5,11 @@
 
 @import "compass/reset";
 
+$bg-color-1: #0C0F66;
+$bg-color-2: #1732E1;
+$font-color-1: #fff;
+$font-color-2: yellow;
+$font-family: Helvetica, sans-serif;
 .ken { 
     width:70px; height:80px; /* exactly the size of an image in our sprite */
     background-image:url('images/ken3.png'); 
@@ -17,7 +22,21 @@
 	height:160px;
 	width:160px;
 	margin: 20px auto;
-	border:solid 1px black;
+}
+
+#reboot {
+	margin: 20px auto;
+	line-height: 40px;
+	height: 40px;
+	width: 100px;
+	background: $bg-color-2;
+	color: $font-color-1;
+	&:hover {
+		cursor:pointer;
+		background: darken($bg-color-2, 10%);
+		color: darken($font-color-1, 80%);
+	}
+
 }
 
 @mixin animation($params) { 
@@ -70,9 +89,10 @@ $spriteHeight:80px;
 
 
 body {
-	background:#0C0F66;
+	background: $bg-color-1;
 	margin:0 auto;
 	text-align:center;
+	font-family: $font-family;
 }
 
 
@@ -104,7 +124,7 @@ img {
 }
 
 p {
-	color:yellow;
+	color:$font-color-2;
 	font-size: 44px;
 	padding:0;
 	margin:15px;

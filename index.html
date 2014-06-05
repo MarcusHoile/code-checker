@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
+	<title>Code Checker</title>
 	<link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> 
 	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
 	<script type="text/javascript" src="javascripts/jquery.js"></script>
 	<script type="text/javascript" src="javascripts/custom.js"></script>
+
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
@@ -25,6 +27,7 @@
 					</div>
 				</div>
 			</div>
+			<div id="reboot">Reset</div>
 		</div><!-- end of left -->
 
 
@@ -37,41 +40,22 @@
 
 	<script>
 	var $ken;
+	var audioElement = document.createElement('audio');
+
 	$(document).ready(function() {
 		$ken = $('.ken');
+		var bigButton = document.getElementById('button');
+		var $reboot = $('#reboot').on('click', function() {
+			$ken.addClass('stance');
+		});
 		$ken.addClass('stance');
-		var audioElement = document.createElement('audio');
 		audioElement.setAttribute('src', 'perfect.mp3');
-    $('#button').click(function() {
-    	$ken.removeClass('stance');
-    	var delay = 500
-    	setTimeout(function(){
-    		audioElement.play();	
-   		}, delay);
-    	buttonPress(bigButton);
-    	perfect();
-    });
-
-
-
-        var bigButton = document.getElementById('button');
-      });
-$(document).on('keydown', function(e) {
-	
-
-    if (e.keyCode === 68) { // 68 is the letter D on the keyboard
-    	$ken.addClass('punch');
-    	setTimeout(function() { $ken.removeClass('punch'); }, 150);
-    } else if (e.keyCode === 82) {
-    	
-    } else if (e.keyCode === 69) {
-    	$ken.addClass('kick');
-    	setTimeout(function() { $ken.removeClass('kick'); }, 500);
-    } else if (e.keyCode === 83) {
-    	$ken.addClass('hadoken');
-    	setTimeout(function() { $ken.removeClass('hadoken'); }, 500);
-    }
-  });
-</script>
+		$('#button').click(function() {
+			var random = Math.random();
+			buttonPress(bigButton);
+			codeCheck();
+		});
+	});
+	</script>
 </body>
 </html>
