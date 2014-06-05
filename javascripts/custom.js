@@ -27,26 +27,41 @@ function destroyCode() {
 }
 
 function noCode() {
-    alert("no Code bro");
+    alert("Gimme yer code!");
 }
 
+function tryAgain() {
+    // clearTimeout(timeout);
+    $tryAgain.css("display", "block");
+    setTimeout(function(){
+        $tryAgain.css("display", "none")}, 800
+    ); // .delay(1000).css("display", "none");
+}
 
 function codeCheck() {
     var random = Math.random();
+    $result.val();
     if ($code.val() == "") {
         noCode();
+    // } else if ($code.css("display") == "block") {
+    // } else if ($result.css("display") == "block") {
+
+
     } else if (random <= 0.25) {
         $ken.addClass('punch');
         setTimeout(function() { $ken.removeClass('punch'); }, 150);
         destroyCode();
+        tryAgain();
     } else if ((random > 0.25) && (random <= 0.5) ) {
         $ken.addClass('kick');
         setTimeout(function() { $ken.removeClass('kick'); }, 500);
         destroyCode();
+        tryAgain();
     } else if ((random > 0.25) && (random <= 0.75)) {
         $ken.addClass('hadoken');
         setTimeout(function() { $ken.removeClass('hadoken'); }, 500);               
         destroyCode();
+        tryAgain();
     } else {
         var delay = 500;
         $ken.removeClass('stance');

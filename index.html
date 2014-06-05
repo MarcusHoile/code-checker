@@ -20,6 +20,7 @@
 				<div class="ken"></div>
 				<div id="result-container">
 					<img src="assets/perfect1.gif" alt="" id="result">
+					<div id="try-again">Try Again</div>
 				</div>
 			</div>
 			<div id="button-container">
@@ -47,11 +48,13 @@
 	var audioElement = document.createElement('audio');
 	var $result;
 	var $code;
+	var $tryAgain;
 
 	$(document).ready(function() {
 		$ken = $('.ken');
 		$result = $('#result');
-		$code = $('#code')
+		$code = $('#code');
+		$tryAgain = $('#try-again');
 
 		var bigButton = document.getElementById('button');
 		var $reboot = $('#reboot').on('click', function() {
