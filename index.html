@@ -3,8 +3,8 @@
 <head>
 	<title>Code Checker</title>
 	<link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> 
-	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="stylesheets/simplegrid.css" rel="stylesheet" type="text/css"> 
+	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="javascripts/jquery.js"></script>
 	<script type="text/javascript" src="javascripts/custom.js"></script>
 
@@ -26,7 +26,7 @@
 			<div id="try-again">Try Again</div>
 		</div>
 	</div>
-	<div class="grid">
+	<div class="col-1-1">
 		<div class="col-3-12 controls">
 			<div id="ken-container">
 				<div class="ken">
@@ -41,70 +41,71 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
+
 		<div class="col-9-12">
-			<div class="col-9-12">
-				<textarea name="" id="code" cols="80" rows="40" placeholder="ENTER YOUR CODE HERE, IF YOU DARE!"></textarea>
+			<div class="col-8-12 input-window">
+				<textarea name="" id="code" cols="60" rows="40" placeholder="ENTER YOUR CODE HERE, IF YOU DARE!"></textarea>
 			</div>
-			<div class="col-3-12">
-				<div class="col-1-12" id="pointers">
-					<p><</p>
-					<p><</p>
-					<p><</p>
-					<p><</p>
-					<p><</p>
-					<p><</p>
-					<p><</p>
-					<p><</p>
 
+			<div class="col-4-12 inline">
+
+				<div class="col-1-12 inline" id="pointers">
+					<p class="pointers"><</p>
+					<p class="pointers"><</p>
+					<p class="pointers"><</p>
+					<p class="pointers"><</p>
+					<p class="pointers"><</p>
+					<p class="pointers"><</p>
+					<p class="pointers"><</p>
+					<p class="pointers"><</p>
 				</div>
-				<div class="col-11-12"></div>
-				<p id="cta">copy pointing back at code</p>
-			</div>
+				<div class="col-11-12 inline">
+					<p id="cta">copy pointing back at code</p>
+				</div>
+			</div> <!-- right hand container -->
 		</div>
 	</div>
-
-	<div id="left">
-
-	</div><!-- end of left -->
-
-
-	<div id="right">
-		<p class="code-title">Code goes here:</p>
-	</div>
+</div>
 
 
 
-	<script>
-	var $ken;
-	var audioElement = document.createElement('audio');
-	var $result;
-	var $code;
-	var $tryAgain;
+<script>
+var $ken;
+var audioElement = document.createElement('audio');
+var $result;
+var $code;
+var $tryAgain;
+var $pointers;
 
-	$(document).ready(function() {
-		$ken = $('.ken');
-		$result = $('#result');
-		$code = $('#code');
-		$tryAgain = $('#try-again');
+$(document).ready(function() {
+	$ken = $('.ken');
+	$result = $('#result');
+	$code = $('#code');
+	$tryAgain = $('#try-again');
+	$pointers = $('.pointers');
+	// setInterval(function(){
+	// 	$pointers.toggleClass("point") }, 300);
 
-		var bigButton = document.getElementById('button');
-		var $reboot = $('#reboot').on('click', function() {
-			reboot();
-		});
 
-		$ken.addClass('stance');
-		audioElement.setAttribute('src', 'assets/perfect.mp3');
+var bigButton = document.getElementById('button');
+var $reboot = $('#reboot').on('click', function() {
+	reboot();
+});
 
-		$('#button').on('click', function() {
-			if ($result.css("display") ==  "block") {
-				reboot();
-			} else {
-				buttonPress(bigButton);
-			}
-		});
-	});
-	</script>
+$ken.addClass('stance');
+audioElement.setAttribute('src', 'assets/perfect.mp3');
+
+$('#button').on('click', function() {
+	if ($result.css("display") ==  "block") {
+		reboot();
+	} else {
+		buttonPress(bigButton);
+	}
+});
+});
+</script>
 </body>
 </html>

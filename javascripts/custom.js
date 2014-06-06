@@ -44,9 +44,10 @@ function tryAgain() {
 function codeCheck() {
     var random = Math.random();
     $result.val();
-    if ($code.val() == "") {
-        noCode();
-    } else if (random <= 0.25) {
+    // if ($code.val() == "") {
+    //     noCode();
+    // } else 
+    if (random <= 0.25) {
         $ken.addClass('punch');
         setTimeout(function() { $ken.removeClass('punch'); }, 150);
         destroyCode();

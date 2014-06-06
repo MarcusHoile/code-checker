@@ -71,64 +71,47 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
-/* line 22, ../sass/screen.scss */
-.ken {
-  width: 70px;
-  height: 80px;
-  /* exactly the size of an image in our sprite */
-  background-image: url("images/ken3.png");
-  background-position: 0px -80px;
-  margin: 20px auto;
-}
-/* line 27, ../sass/screen.scss */
-.ken img {
-  height: 160px;
-  width: 160px;
-  margin: 20px;
-}
-
-/* line 33, ../sass/screen.scss */
+/* line 24, ../sass/screen.scss */
 #header {
   background: #fff;
   margin: 0;
   padding: 0;
 }
 
-/* line 39, ../sass/screen.scss */
+/* line 30, ../sass/screen.scss */
 #result-container {
   padding: 40px;
+  margin-bottom: 40px;
   width: 100%;
   height: 60px;
 }
-/* line 43, ../sass/screen.scss */
+/* line 35, ../sass/screen.scss */
 #result-container #result {
   margin: 0 auto;
   display: none;
 }
-/* line 47, ../sass/screen.scss */
+/* line 39, ../sass/screen.scss */
 #result-container #try-again {
   display: none;
   color: yellow;
 }
 
-/* line 52, ../sass/screen.scss */
+/* line 44, ../sass/screen.scss */
 .controls {
   height: 400px;
   margin-top: 50px;
 }
-/* line 55, ../sass/screen.scss */
-.controls > div {
-  margin: 40px 0;
+
+/* line 53, ../sass/screen.scss */
+#ken-container {
+  margin: 20px 0;
+  margin-left: 60%;
 }
 
 /* line 59, ../sass/screen.scss */
-#ken-container {
-  margin: 20px auto;
-}
-
-/* line 63, ../sass/screen.scss */
 #reboot {
   float: left;
   margin: 0 auto;
@@ -138,14 +121,14 @@ html, body {
   background: #79cc31;
   color: white;
 }
-/* line 71, ../sass/screen.scss */
+/* line 67, ../sass/screen.scss */
 #reboot:hover {
   cursor: pointer;
   background: #61a327;
 }
 
 /* stance */
-/* line 95, ../sass/screen.scss */
+/* line 91, ../sass/screen.scss */
 .stance {
   -webkit-animation: stance steps(4) 0.48s infinite;
   -moz-animation: stance steps(4) 0.48s infinite;
@@ -154,55 +137,55 @@ html, body {
 }
 
 @-webkit-keyframes stance {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
-    background-position: 0px -80px;
+    background-position: 0px 0px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -280px -80px;
+    background-position: -192px 0px;
   }
 }
 
 @-moz-keyframes stance {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
-    background-position: 0px -80px;
+    background-position: 0px 0px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -280px -80px;
+    background-position: -192px 0px;
   }
 }
 
 @-ms-keyframes stance {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
-    background-position: 0px -80px;
+    background-position: 0px 0px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -280px -80px;
+    background-position: -192px 0px;
   }
 }
 
 @keyframes stance {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
-    background-position: 0px -80px;
+    background-position: 0px 0px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -280px -80px;
+    background-position: -192px 0px;
   }
 }
 
 /* perfect */
-/* line 95, ../sass/screen.scss */
+/* line 91, ../sass/screen.scss */
 .perfect {
   -webkit-animation: perfect steps(3) 0.6s;
   -moz-animation: perfect steps(3) 0.6s;
@@ -211,55 +194,55 @@ html, body {
 }
 
 @-webkit-keyframes perfect {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px -800px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -210px -800px;
+    background-position: -144px -800px;
   }
 }
 
 @-moz-keyframes perfect {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px -800px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -210px -800px;
+    background-position: -144px -800px;
   }
 }
 
 @-ms-keyframes perfect {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px -800px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -210px -800px;
+    background-position: -144px -800px;
   }
 }
 
 @keyframes perfect {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px -800px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -210px -800px;
+    background-position: -144px -800px;
   }
 }
 
 /* punch */
-/* line 95, ../sass/screen.scss */
+/* line 91, ../sass/screen.scss */
 .punch {
   -webkit-animation: punch steps(3) 0.15s infinite;
   -moz-animation: punch steps(3) 0.15s infinite;
@@ -268,55 +251,55 @@ html, body {
 }
 
 @-webkit-keyframes punch {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px -160px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -210px -160px;
+    background-position: -144px -160px;
   }
 }
 
 @-moz-keyframes punch {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px -160px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -210px -160px;
+    background-position: -144px -160px;
   }
 }
 
 @-ms-keyframes punch {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px -160px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -210px -160px;
+    background-position: -144px -160px;
   }
 }
 
 @keyframes punch {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px -160px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -210px -160px;
+    background-position: -144px -160px;
   }
 }
 
 /* kick */
-/* line 95, ../sass/screen.scss */
+/* line 91, ../sass/screen.scss */
 .kick {
   -webkit-animation: kick steps(5) 0.5s infinite;
   -moz-animation: kick steps(5) 0.5s infinite;
@@ -325,55 +308,55 @@ html, body {
 }
 
 @-webkit-keyframes kick {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px -480px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -350px -480px;
+    background-position: -240px -480px;
   }
 }
 
 @-moz-keyframes kick {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px -480px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -350px -480px;
+    background-position: -240px -480px;
   }
 }
 
 @-ms-keyframes kick {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px -480px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -350px -480px;
+    background-position: -240px -480px;
   }
 }
 
 @keyframes kick {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px -480px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -350px -480px;
+    background-position: -240px -480px;
   }
 }
 
 /* hadoken */
-/* line 95, ../sass/screen.scss */
+/* line 91, ../sass/screen.scss */
 .hadoken {
   -webkit-animation: hadoken steps(4) 0.5s infinite;
   -moz-animation: hadoken steps(4) 0.5s infinite;
@@ -382,54 +365,54 @@ html, body {
 }
 
 @-webkit-keyframes hadoken {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px 0px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -280px 0px;
+    background-position: -192px 0px;
   }
 }
 
 @-moz-keyframes hadoken {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px 0px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -280px 0px;
+    background-position: -192px 0px;
   }
 }
 
 @-ms-keyframes hadoken {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px 0px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -280px 0px;
+    background-position: -192px 0px;
   }
 }
 
 @keyframes hadoken {
-  /* line 100, ../sass/screen.scss */
+  /* line 96, ../sass/screen.scss */
   from {
     background-position: 0px 0px;
   }
 
-  /* line 101, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   to {
-    background-position: -280px 0px;
+    background-position: -192px 0px;
   }
 }
 
-/* line 119, ../sass/screen.scss */
+/* line 115, ../sass/screen.scss */
 body {
   background: #0c0f66;
   margin: 0 auto;
@@ -437,7 +420,7 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
-/* line 127, ../sass/screen.scss */
+/* line 123, ../sass/screen.scss */
 #left {
   width: 25%;
   display: inline-block;
@@ -447,7 +430,7 @@ body {
   float: left;
 }
 
-/* line 136, ../sass/screen.scss */
+/* line 132, ../sass/screen.scss */
 #right {
   width: 55%;
   display: inline-block;
@@ -456,7 +439,12 @@ body {
   float: right;
 }
 
-/* line 146, ../sass/screen.scss */
+/* line 140, ../sass/screen.scss */
+.point {
+  margin-left: 40px;
+}
+
+/* line 144, ../sass/screen.scss */
 p {
   color: yellow;
   font-size: 44px;
@@ -464,17 +452,18 @@ p {
   margin: 15px;
 }
 
-/* line 153, ../sass/screen.scss */
+/* line 151, ../sass/screen.scss */
 .code-title {
   font-size: 24px;
 }
 
-/* line 157, ../sass/screen.scss */
+/* line 155, ../sass/screen.scss */
 #button-container {
   width: 100%;
+  margin-left: 30%;
 }
 
-/* line 161, ../sass/screen.scss */
+/* line 160, ../sass/screen.scss */
 #button-edge {
   margin: 0 auto;
   height: 100px;
@@ -487,13 +476,20 @@ p {
   border-top: solid #541F14 2px;
 }
 
-/* line 173, ../sass/screen.scss */
-textarea {
-  margin-bottom: 220px;
-  font-size: 14px;
+/* line 172, ../sass/screen.scss */
+.input-window {
+  padding-right: 0;
 }
 
-/* line 179, ../sass/screen.scss */
+/* line 176, ../sass/screen.scss */
+textarea {
+  margin-bottom: 220px;
+  font-size: 16px;
+  width: 90%;
+  margin: 0 0 0 40px;
+}
+
+/* line 185, ../sass/screen.scss */
 #highlight {
   background: -webkit-radial-gradient(red 55%, #640202 68%, black);
   margin-left: 6px;
@@ -503,7 +499,7 @@ textarea {
   top: 2px;
 }
 
-/* line 188, ../sass/screen.scss */
+/* line 194, ../sass/screen.scss */
 #button {
   background: #cc1e14;
   border-bottom: solid red 4px;
@@ -515,7 +511,7 @@ textarea {
   border-radius: 100px;
 }
 
-/* line 199, ../sass/screen.scss */
+/* line 205, ../sass/screen.scss */
 #button-top-highlight {
   margin-top: 2px;
   width: 66.5px;
@@ -526,7 +522,7 @@ textarea {
   background: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.4));
 }
 
-/* line 209, ../sass/screen.scss */
+/* line 215, ../sass/screen.scss */
 #button-bottom-highlight {
   margin-top: 8.5px;
   width: 66.5px;
@@ -535,4 +531,20 @@ textarea {
   border-bottom-left-radius: 100px;
   border-bottom-right-radius: 100px;
   background: -webkit-linear-gradient(top, rgba(255, 0, 0, 0) 60%, rgba(100, 2, 2, 0.4));
+}
+
+/* line 224, ../sass/screen.scss */
+.ken {
+  width: 48px;
+  height: 80px;
+  /* exactly the size of an image in our sprite */
+  background-image: url("images/Ken-All.gif");
+  background-position: 0px -80px;
+  margin: 20px auto;
+}
+/* line 229, ../sass/screen.scss */
+.ken img {
+  height: 160px;
+  width: 160px;
+  margin: 20px;
 }
