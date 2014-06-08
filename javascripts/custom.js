@@ -14,15 +14,14 @@ function buttonPress(obj){
         obj.style.marginTop = origMarginTop;
     }, 200);
     setTimeout(function() {
-        codeCheck()
+        codeCheck();
     }, 200);
-
 }
 
 function perfect() {
     $ken.addClass('perfect');
     setTimeout(function() { $ken.removeClass('perfect'); }, 600);
-    $ken.css("background-position", "-140px -800px");
+    $ken.css("background-position", "-160px -690px");
     $result.css("display", "block");
 }
 
@@ -49,7 +48,7 @@ function codeCheck() {
     // } else 
     if (random <= 0.25) {
         $ken.addClass('punch');
-        setTimeout(function() { $ken.removeClass('punch'); }, 150);
+        setTimeout(function() { $ken.removeClass('punch'); }, 500);
         destroyCode();
         tryAgain();
     } else if ((random > 0.25) && (random <= 0.5) ) {

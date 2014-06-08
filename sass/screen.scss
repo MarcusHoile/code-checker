@@ -84,8 +84,8 @@ html, body {
     @keyframes         $name { @content }
 }
 
-$spriteWidth:48px;
-$spriteHeight:80px;
+$spriteWidth:80px;
+$spriteHeight:115px;
 
 @mixin anim($animName, $steps, $animNbr, $animParams){
     .#{$animName} { 
@@ -101,13 +101,13 @@ $spriteHeight:80px;
 /* stance */
 @include anim($animName:stance, $steps:4, $animNbr:1, $animParams:.48s infinite);
 /* perfect */
-@include anim($animName:perfect, $steps:3, $animNbr:11, $animParams:.6s);
+@include anim($animName:perfect, $steps:3, $animNbr:7, $animParams:.6s);
 /* punch */
-@include anim($animName:punch, $steps:3, $animNbr:3, $animParams:.15s infinite);
+@include anim($animName:punch, $steps:5, $animNbr:4, $animParams:.9s infinite);
 /* kick */
-@include anim($animName:kick, $steps:5, $animNbr:7, $animParams:.5s infinite);
+@include anim($animName:kick, $steps:4, $animNbr:3, $animParams:.5s infinite);
 /* hadoken */
-@include anim($animName:hadoken, $steps:4, $animNbr:1, $animParams:.5s infinite);
+@include anim($animName:hadoken, $steps:4, $animNbr:2, $animParams:.5s infinite);
 
 
 
@@ -223,7 +223,7 @@ textarea {
 }
 .ken { 
 	width: $spriteWidth; height: $spriteHeight; /* exactly the size of an image in our sprite */
-	background-image:url('images/Ken-All.gif'); 
+	background-image:url('images/Ken-sprite.png'); 
 	background-position: 0px -80px;
 	margin:20px auto;
 	img {

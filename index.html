@@ -90,21 +90,21 @@ $(document).ready(function() {
 	// 	$pointers.toggleClass("point") }, 300);
 
 
-var bigButton = document.getElementById('button');
-var $reboot = $('#reboot').on('click', function() {
-	reboot();
-});
-
-$ken.addClass('stance');
-audioElement.setAttribute('src', 'assets/perfect.mp3');
-
-$('#button').on('click', function() {
-	if ($result.css("display") ==  "block") {
+	var bigButton = document.getElementById('button');
+	var $reboot = $('#reboot').on('click', function() {
 		reboot();
-	} else {
-		buttonPress(bigButton);
-	}
-});
+	});
+
+	$ken.addClass('stance');
+	audioElement.setAttribute('src', 'assets/perfect.mp3');
+
+	$('#button').on('click', function() {
+		if ($result.css("display") ==  "block") {
+			reboot();
+		} else {
+			buttonPress(bigButton);
+		}
+	});
 });
 </script>
 </body>
