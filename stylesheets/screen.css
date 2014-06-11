@@ -412,7 +412,63 @@ html, body {
   }
 }
 
-/* line 115, ../sass/screen.scss */
+/* line 91, ../sass/screen.scss */
+.plasma {
+  -webkit-animation: plasma steps(4) 0.5s infinite;
+  -moz-animation: plasma steps(4) 0.5s infinite;
+  -ms-animation: plasma steps(4) 0.5s infinite;
+  animation: plasma steps(4) 0.5s infinite;
+}
+
+@-webkit-keyframes plasma {
+  /* line 96, ../sass/screen.scss */
+  from {
+    background-position: 0px -460px;
+  }
+
+  /* line 97, ../sass/screen.scss */
+  to {
+    background-position: -320px -460px;
+  }
+}
+
+@-moz-keyframes plasma {
+  /* line 96, ../sass/screen.scss */
+  from {
+    background-position: 0px -460px;
+  }
+
+  /* line 97, ../sass/screen.scss */
+  to {
+    background-position: -320px -460px;
+  }
+}
+
+@-ms-keyframes plasma {
+  /* line 96, ../sass/screen.scss */
+  from {
+    background-position: 0px -460px;
+  }
+
+  /* line 97, ../sass/screen.scss */
+  to {
+    background-position: -320px -460px;
+  }
+}
+
+@keyframes plasma {
+  /* line 96, ../sass/screen.scss */
+  from {
+    background-position: 0px -460px;
+  }
+
+  /* line 97, ../sass/screen.scss */
+  to {
+    background-position: -320px -460px;
+  }
+}
+
+/* line 118, ../sass/screen.scss */
 body {
   background: #0c0f66;
   margin: 0 auto;
@@ -420,7 +476,7 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
-/* line 123, ../sass/screen.scss */
+/* line 126, ../sass/screen.scss */
 #left {
   width: 25%;
   display: inline-block;
@@ -430,7 +486,7 @@ body {
   float: left;
 }
 
-/* line 132, ../sass/screen.scss */
+/* line 135, ../sass/screen.scss */
 #right {
   width: 55%;
   display: inline-block;
@@ -439,12 +495,12 @@ body {
   float: right;
 }
 
-/* line 140, ../sass/screen.scss */
+/* line 143, ../sass/screen.scss */
 .point {
   margin-left: 40px;
 }
 
-/* line 144, ../sass/screen.scss */
+/* line 147, ../sass/screen.scss */
 p {
   color: yellow;
   font-size: 44px;
@@ -452,18 +508,19 @@ p {
   margin: 15px;
 }
 
-/* line 151, ../sass/screen.scss */
+/* line 154, ../sass/screen.scss */
 .code-title {
   font-size: 24px;
 }
 
-/* line 155, ../sass/screen.scss */
+/* line 158, ../sass/screen.scss */
 #button-container {
   width: 100%;
+  margin-top: 120px;
   margin-left: 30%;
 }
 
-/* line 160, ../sass/screen.scss */
+/* line 164, ../sass/screen.scss */
 #button-edge {
   margin: 0 auto;
   height: 100px;
@@ -476,20 +533,21 @@ p {
   border-top: solid #541F14 2px;
 }
 
-/* line 172, ../sass/screen.scss */
+/* line 176, ../sass/screen.scss */
 .input-window {
   padding-right: 0;
 }
 
-/* line 176, ../sass/screen.scss */
+/* line 180, ../sass/screen.scss */
 textarea {
   margin-bottom: 220px;
   font-size: 16px;
   width: 90%;
   margin: 0 0 0 40px;
+  z-index: -1;
 }
 
-/* line 185, ../sass/screen.scss */
+/* line 190, ../sass/screen.scss */
 #highlight {
   background: -webkit-radial-gradient(red 55%, #640202 68%, black);
   margin-left: 6px;
@@ -499,7 +557,7 @@ textarea {
   top: 2px;
 }
 
-/* line 194, ../sass/screen.scss */
+/* line 199, ../sass/screen.scss */
 #button {
   background: #cc1e14;
   border-bottom: solid red 4px;
@@ -511,7 +569,7 @@ textarea {
   border-radius: 100px;
 }
 
-/* line 205, ../sass/screen.scss */
+/* line 210, ../sass/screen.scss */
 #button-top-highlight {
   margin-top: 2px;
   width: 66.5px;
@@ -522,7 +580,7 @@ textarea {
   background: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.4));
 }
 
-/* line 215, ../sass/screen.scss */
+/* line 220, ../sass/screen.scss */
 #button-bottom-highlight {
   margin-top: 8.5px;
   width: 66.5px;
@@ -533,8 +591,10 @@ textarea {
   background: -webkit-linear-gradient(top, rgba(255, 0, 0, 0) 60%, rgba(100, 2, 2, 0.4));
 }
 
-/* line 224, ../sass/screen.scss */
+/* line 229, ../sass/screen.scss */
 .ken {
+  position: absolute;
+  left: -105px;
   width: 80px;
   height: 115px;
   /* exactly the size of an image in our sprite */
@@ -542,8 +602,33 @@ textarea {
   background-position: 0px -80px;
   margin: 20px auto;
 }
-/* line 229, ../sass/screen.scss */
+/* line 236, ../sass/screen.scss */
 .ken img {
+  height: 160px;
+  width: 160px;
+  margin: 20px;
+}
+
+/* line 243, ../sass/screen.scss */
+#wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* line 249, ../sass/screen.scss */
+.hadoken-plasma {
+  position: absolute;
+  top: 18px;
+  left: -40px;
+  width: 80px;
+  height: 115px;
+  /* exactly the size of an image in our sprite */
+  background-image: url("images/Ken-sprite.png");
+  background-position: -460px -80px;
+  z-index: 3;
+}
+/* line 258, ../sass/screen.scss */
+.hadoken-plasma img {
   height: 160px;
   width: 160px;
   margin: 20px;

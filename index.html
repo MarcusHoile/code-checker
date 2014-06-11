@@ -28,10 +28,7 @@
 	</div>
 	<div class="col-1-1">
 		<div class="col-3-12 controls">
-			<div id="ken-container">
-				<div class="ken">
-				</div>
-			</div>
+
 			<div id="button-container">
 				<div id="button-edge">
 					<div id="highlight">
@@ -46,7 +43,11 @@
 		</div>
 
 		<div class="col-9-12">
-			<div class="col-8-12 input-window">
+			<div class="col-8-12 input-window" id="wrapper">
+				<div class="ken">
+				</div>
+					<div class="hadoken-plasma"></div>
+				
 				<textarea name="" id="code" cols="60" rows="40" placeholder="ENTER YOUR CODE HERE, IF YOU DARE!"></textarea>
 			</div>
 
@@ -79,9 +80,11 @@ var $result;
 var $code;
 var $tryAgain;
 var $pointers;
+var $plasma;
 
 $(document).ready(function() {
 	$ken = $('.ken');
+	$plasma = $('.hadoken-plasma');
 	$result = $('#result');
 	$code = $('#code');
 	$tryAgain = $('#try-again');
@@ -90,21 +93,21 @@ $(document).ready(function() {
 	// 	$pointers.toggleClass("point") }, 300);
 
 
-	var bigButton = document.getElementById('button');
-	var $reboot = $('#reboot').on('click', function() {
+var bigButton = document.getElementById('button');
+var $reboot = $('#reboot').on('click', function() {
+	reboot();
+});
+
+$ken.addClass('stance');
+audioElement.setAttribute('src', 'assets/perfect.mp3');
+
+$('#button').on('click', function() {
+	if ($result.css("display") ==  "block") {
 		reboot();
-	});
-
-	$ken.addClass('stance');
-	audioElement.setAttribute('src', 'assets/perfect.mp3');
-
-	$('#button').on('click', function() {
-		if ($result.css("display") ==  "block") {
-			reboot();
-		} else {
-			buttonPress(bigButton);
-		}
-	});
+	} else {
+		buttonPress(bigButton);
+	}
+});
 });
 </script>
 </body>

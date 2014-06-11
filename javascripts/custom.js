@@ -14,15 +14,58 @@ function buttonPress(obj){
         obj.style.marginTop = origMarginTop;
     }, 200);
     setTimeout(function() {
-        codeCheck();
+        resetPlasma();
+        // codeCheck();
+        hadoken();
+
     }, 200);
 }
 
 function perfect() {
     $ken.addClass('perfect');
     setTimeout(function() { $ken.removeClass('perfect'); }, 600);
+    setInterval(function(){ 
+        var plasmaLeft = -50;
+        $plasma
+    });
     $ken.css("background-position", "-160px -690px");
     $result.css("display", "block");
+}
+
+var plasmaDelay = 200;
+var plasmaDistance = 40;
+var plasmaTimer = null;
+var plasmaOrigPos = -50;
+
+
+function hadoken() {
+    $ken.addClass('hadoken');
+    setTimeout(function() { 
+        $plasma.addClass('plasma'); 
+        plasmaTimer = setInterval(function(){
+            plasmaMove();
+        }, plasmaDelay);  
+    }, 400);
+
+    setTimeout(function() { $ken.removeClass('hadoken'); }, 500);               
+
+}
+
+function plasmaMove() {
+
+    $plasmaCurrentPos = parseInt($plasma.css('left'));
+    $plasma.css('left', (($plasmaCurrentPos + plasmaDistance) + 'px'));
+    if (parseInt($plasma.css('left')) > 300) {
+        resetPlasma();
+        destroyCode();
+        tryAgain(); 
+    }
+}
+
+function resetPlasma() {
+    $plasma.removeClass('plasma');
+    $plasma.css('left', (plasmaOrigPos + 'px'))
+    clearInterval(plasmaTimer);
 }
 
 function destroyCode() {
@@ -57,10 +100,7 @@ function codeCheck() {
         destroyCode();
         tryAgain();
     } else if ((random > 0.25) && (random <= 0.75)) {
-        $ken.addClass('hadoken');
-        setTimeout(function() { $ken.removeClass('hadoken'); }, 500);               
-        destroyCode();
-        tryAgain();
+        hadoken();
     } else {
         var delay = 500;
         $ken.removeClass('stance');
