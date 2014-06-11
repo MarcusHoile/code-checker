@@ -14,9 +14,11 @@ function buttonPress(obj){
         obj.style.marginTop = origMarginTop;
     }, 200);
     setTimeout(function() {
-        resetPlasma();
+        // resetPlasma();
+        resetTetsu();
         // codeCheck();
-        hadoken();
+        // hadoken();
+        tetsu();
 
     }, 200);
 }
@@ -38,6 +40,7 @@ var plasmaTimer = null;
 var plasmaOrigPos = -50;
 
 
+
 function hadoken() {
     $ken.addClass('hadoken');
     setTimeout(function() { 
@@ -46,15 +49,12 @@ function hadoken() {
             plasmaMove();
         }, plasmaDelay);  
     }, 400);
-
-    setTimeout(function() { $ken.removeClass('hadoken'); }, 500);               
-
+    setTimeout(function() { $ken.removeClass('hadoken'); }, 500);
 }
 
 function plasmaMove() {
-
-    $plasmaCurrentPos = parseInt($plasma.css('left'));
-    $plasma.css('left', (($plasmaCurrentPos + plasmaDistance) + 'px'));
+    var plasmaCurrentPos = parseInt($plasma.css('left'));
+    $plasma.css('left', ((plasmaCurrentPos + plasmaDistance) + 'px'));
     if (parseInt($plasma.css('left')) > 300) {
         resetPlasma();
         destroyCode();
@@ -62,10 +62,41 @@ function plasmaMove() {
     }
 }
 
+var tetsuDelay = 100;
+var tetsuDistance = 40;
+var tetsuTimer = null;
+var kenOrigPos = -105;
+
+function tetsuMove() {
+    kenCurrentPos = parseInt($ken.css('left'));
+    $ken.css('left', ((kenCurrentPos + tetsuDistance) + 'px'));
+    if (parseInt($ken.css('left')) > 300) {
+        tetsuDistance = -40
+        destroyCode();
+        tryAgain(); 
+
+    } else if (parseInt($ken.css('left')) < -130) {
+        resetTetsu();
+    }
+}
+
+function resetTetsu() {
+    $ken.removeClass('kick');
+    $ken.css('left', (kenOrigPos + 'px'));
+    clearInterval(tetsuTimer);
+}
+
 function resetPlasma() {
     $plasma.removeClass('plasma');
-    $plasma.css('left', (plasmaOrigPos + 'px'))
+    $plasma.css('left', (plasmaOrigPos + 'px'));
     clearInterval(plasmaTimer);
+}
+
+function tetsu() {
+    $ken.addClass('kick');
+    tetsuTimer = setInterval(function(){
+        tetsuMove();
+    }, tetsuDelay);
 }
 
 function destroyCode() {
