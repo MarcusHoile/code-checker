@@ -468,7 +468,63 @@ html, body {
   }
 }
 
-/* line 118, ../sass/screen.scss */
+/* line 91, ../sass/screen.scss */
+.jump {
+  -webkit-animation: jump steps(8) 1.5s infinite;
+  -moz-animation: jump steps(8) 1.5s infinite;
+  -ms-animation: jump steps(8) 1.5s infinite;
+  animation: jump steps(8) 1.5s infinite;
+}
+
+@-webkit-keyframes jump {
+  /* line 96, ../sass/screen.scss */
+  from {
+    background-position: 0px -920px;
+  }
+
+  /* line 97, ../sass/screen.scss */
+  to {
+    background-position: -640px -920px;
+  }
+}
+
+@-moz-keyframes jump {
+  /* line 96, ../sass/screen.scss */
+  from {
+    background-position: 0px -920px;
+  }
+
+  /* line 97, ../sass/screen.scss */
+  to {
+    background-position: -640px -920px;
+  }
+}
+
+@-ms-keyframes jump {
+  /* line 96, ../sass/screen.scss */
+  from {
+    background-position: 0px -920px;
+  }
+
+  /* line 97, ../sass/screen.scss */
+  to {
+    background-position: -640px -920px;
+  }
+}
+
+@keyframes jump {
+  /* line 96, ../sass/screen.scss */
+  from {
+    background-position: 0px -920px;
+  }
+
+  /* line 97, ../sass/screen.scss */
+  to {
+    background-position: -640px -920px;
+  }
+}
+
+/* line 121, ../sass/screen.scss */
 body {
   background: #0c0f66;
   margin: 0 auto;
@@ -476,7 +532,7 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
-/* line 126, ../sass/screen.scss */
+/* line 129, ../sass/screen.scss */
 #left {
   width: 25%;
   display: inline-block;
@@ -486,7 +542,7 @@ body {
   float: left;
 }
 
-/* line 135, ../sass/screen.scss */
+/* line 138, ../sass/screen.scss */
 #right {
   width: 55%;
   display: inline-block;
@@ -495,12 +551,12 @@ body {
   float: right;
 }
 
-/* line 143, ../sass/screen.scss */
+/* line 146, ../sass/screen.scss */
 .point {
   margin-left: 40px;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 150, ../sass/screen.scss */
 p {
   color: yellow;
   font-size: 44px;
@@ -508,19 +564,19 @@ p {
   margin: 15px;
 }
 
-/* line 154, ../sass/screen.scss */
+/* line 157, ../sass/screen.scss */
 .code-title {
   font-size: 24px;
 }
 
-/* line 158, ../sass/screen.scss */
+/* line 161, ../sass/screen.scss */
 #button-container {
   width: 100%;
   margin-top: 120px;
   margin-left: 30%;
 }
 
-/* line 164, ../sass/screen.scss */
+/* line 167, ../sass/screen.scss */
 #button-edge {
   margin: 0 auto;
   height: 100px;
@@ -533,12 +589,12 @@ p {
   border-top: solid #541F14 2px;
 }
 
-/* line 176, ../sass/screen.scss */
+/* line 179, ../sass/screen.scss */
 .input-window {
   padding-right: 0;
 }
 
-/* line 180, ../sass/screen.scss */
+/* line 183, ../sass/screen.scss */
 textarea {
   margin-bottom: 220px;
   font-size: 16px;
@@ -547,7 +603,7 @@ textarea {
   z-index: -1;
 }
 
-/* line 190, ../sass/screen.scss */
+/* line 193, ../sass/screen.scss */
 #highlight {
   background: -webkit-radial-gradient(red 55%, #640202 68%, black);
   margin-left: 6px;
@@ -557,7 +613,7 @@ textarea {
   top: 2px;
 }
 
-/* line 199, ../sass/screen.scss */
+/* line 202, ../sass/screen.scss */
 #button {
   background: #cc1e14;
   border-bottom: solid red 4px;
@@ -569,7 +625,7 @@ textarea {
   border-radius: 100px;
 }
 
-/* line 210, ../sass/screen.scss */
+/* line 213, ../sass/screen.scss */
 #button-top-highlight {
   margin-top: 2px;
   width: 66.5px;
@@ -580,7 +636,7 @@ textarea {
   background: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.4));
 }
 
-/* line 220, ../sass/screen.scss */
+/* line 223, ../sass/screen.scss */
 #button-bottom-highlight {
   margin-top: 8.5px;
   width: 66.5px;
@@ -591,9 +647,10 @@ textarea {
   background: -webkit-linear-gradient(top, rgba(255, 0, 0, 0) 60%, rgba(100, 2, 2, 0.4));
 }
 
-/* line 229, ../sass/screen.scss */
+/* line 232, ../sass/screen.scss */
 .ken {
   position: absolute;
+  top: 0;
   left: -105px;
   width: 80px;
   height: 115px;
@@ -602,20 +659,20 @@ textarea {
   background-position: 0px -80px;
   margin: 20px auto;
 }
-/* line 236, ../sass/screen.scss */
+/* line 240, ../sass/screen.scss */
 .ken img {
   height: 160px;
   width: 160px;
   margin: 20px;
 }
 
-/* line 243, ../sass/screen.scss */
+/* line 247, ../sass/screen.scss */
 #wrapper {
   position: relative;
   display: inline-block;
 }
 
-/* line 249, ../sass/screen.scss */
+/* line 253, ../sass/screen.scss */
 .hadoken-plasma {
   position: absolute;
   top: 18px;
@@ -627,7 +684,7 @@ textarea {
   background-position: -460px -80px;
   z-index: 3;
 }
-/* line 258, ../sass/screen.scss */
+/* line 262, ../sass/screen.scss */
 .hadoken-plasma img {
   height: 160px;
   width: 160px;

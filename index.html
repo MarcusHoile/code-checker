@@ -46,8 +46,8 @@
 			<div class="col-8-12 input-window" id="wrapper">
 				<div class="ken">
 				</div>
-					<div class="hadoken-plasma"></div>
-				
+				<div class="hadoken-plasma"></div>
+
 				<textarea name="" id="code" cols="60" rows="40" placeholder="ENTER YOUR CODE HERE, IF YOU DARE!"></textarea>
 			</div>
 
@@ -81,6 +81,11 @@ var $code;
 var $tryAgain;
 var $pointers;
 var $plasma;
+var $bigButton;
+var kenCurrentPosTop;
+var kenCurrentPosLeft;
+
+
 
 $(document).ready(function() {
 	$ken = $('.ken');
@@ -93,21 +98,21 @@ $(document).ready(function() {
 	// 	$pointers.toggleClass("point") }, 300);
 
 
-var bigButton = document.getElementById('button');
-var $reboot = $('#reboot').on('click', function() {
-	reboot();
-});
-
-$ken.addClass('stance');
-audioElement.setAttribute('src', 'assets/perfect.mp3');
-
-$('#button').on('click', function() {
-	if ($result.css("display") ==  "block") {
+	$bigButton = $('#button');
+	var $reboot = $('#reboot').on('click', function() {
 		reboot();
-	} else {
-		buttonPress(bigButton);
-	}
-});
+	});
+
+	$ken.addClass('stance');
+	audioElement.setAttribute('src', 'assets/perfect.mp3');
+
+	$('#button').on('click', function() {
+		if ($result.css("display") ==  "block") {
+			reboot();
+		} else {
+			startGame();
+		}
+	});
 });
 </script>
 </body>

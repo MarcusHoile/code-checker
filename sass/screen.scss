@@ -111,6 +111,9 @@ $spriteHeight:115px;
 // plasma
 @include anim($animName:plasma, $steps:4, $animNbr:5, $animParams:.5s infinite);
 
+@include anim($animName:jump, $steps:8, $animNbr:9, $animParams:1.5s infinite);
+
+
 
 
 
@@ -228,6 +231,7 @@ textarea {
 }
 .ken { 
 	position: absolute;
+	top:0;
 	left: -105px;
 	width: $spriteWidth; height: $spriteHeight; /* exactly the size of an image in our sprite */
 	background-image:url('images/Ken-sprite.png'); 
