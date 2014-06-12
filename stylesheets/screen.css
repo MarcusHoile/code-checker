@@ -594,7 +594,17 @@ p {
   padding-right: 0;
 }
 
-/* line 183, ../sass/screen.scss */
+/* line 182, ../sass/screen.scss */
+.CodeMirror {
+  z-index: -3;
+}
+
+/* line 185, ../sass/screen.scss */
+.CodeMirror-code {
+  text-align: left;
+}
+
+/* line 189, ../sass/screen.scss */
 textarea {
   margin-bottom: 220px;
   font-size: 16px;
@@ -603,7 +613,7 @@ textarea {
   z-index: -1;
 }
 
-/* line 193, ../sass/screen.scss */
+/* line 199, ../sass/screen.scss */
 #highlight {
   background: -webkit-radial-gradient(red 55%, #640202 68%, black);
   margin-left: 6px;
@@ -613,7 +623,7 @@ textarea {
   top: 2px;
 }
 
-/* line 202, ../sass/screen.scss */
+/* line 208, ../sass/screen.scss */
 #button {
   background: #cc1e14;
   border-bottom: solid red 4px;
@@ -625,7 +635,7 @@ textarea {
   border-radius: 100px;
 }
 
-/* line 213, ../sass/screen.scss */
+/* line 219, ../sass/screen.scss */
 #button-top-highlight {
   margin-top: 2px;
   width: 66.5px;
@@ -636,7 +646,7 @@ textarea {
   background: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.4));
 }
 
-/* line 223, ../sass/screen.scss */
+/* line 229, ../sass/screen.scss */
 #button-bottom-highlight {
   margin-top: 8.5px;
   width: 66.5px;
@@ -647,7 +657,7 @@ textarea {
   background: -webkit-linear-gradient(top, rgba(255, 0, 0, 0) 60%, rgba(100, 2, 2, 0.4));
 }
 
-/* line 232, ../sass/screen.scss */
+/* line 238, ../sass/screen.scss */
 .ken {
   position: absolute;
   top: 0;
@@ -659,20 +669,21 @@ textarea {
   background-position: 0px -80px;
   margin: 20px auto;
 }
-/* line 240, ../sass/screen.scss */
+/* line 246, ../sass/screen.scss */
 .ken img {
   height: 160px;
   width: 160px;
   margin: 20px;
+  z-index: 3;
 }
 
-/* line 247, ../sass/screen.scss */
+/* line 254, ../sass/screen.scss */
 #wrapper {
   position: relative;
   display: inline-block;
 }
 
-/* line 253, ../sass/screen.scss */
+/* line 260, ../sass/screen.scss */
 .hadoken-plasma {
   position: absolute;
   top: 18px;
@@ -684,9 +695,17 @@ textarea {
   background-position: -460px -80px;
   z-index: 3;
 }
-/* line 262, ../sass/screen.scss */
+/* line 269, ../sass/screen.scss */
 .hadoken-plasma img {
   height: 160px;
   width: 160px;
   margin: 20px;
+}
+
+/* line 275, ../sass/screen.scss */
+.explosion {
+  position: absolute;
+  top: -120px;
+  left: -80px;
+  display: none;
 }

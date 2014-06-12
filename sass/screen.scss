@@ -179,6 +179,12 @@ p {
 .input-window {
 	padding-right:0;
 }
+.CodeMirror {
+	z-index:-3;
+}
+.CodeMirror-code {
+	text-align:left;
+}
 
 textarea {
 	margin-bottom: 220px;
@@ -241,6 +247,7 @@ textarea {
 		height:160px;
 		width:160px;
 		margin: 20px;
+		z-index:3;
 	}
 }
 
@@ -265,6 +272,13 @@ textarea {
 		margin: 20px;
 	}
 }
+.explosion {
+	position: absolute;
+	top: -120px;
+	left: -80px;
+	display:none;
+}
+
 
 
 

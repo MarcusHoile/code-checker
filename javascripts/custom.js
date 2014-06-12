@@ -1,16 +1,22 @@
 function startGame(){
-    if ($ken.hasClass('kick') || $ken.hasClass('punch') || $ken.hasClass('hadoken')) {
-        reboot();
-        buttonPress($bigButton);
-    } else {
-        reboot();
-        buttonPress($bigButton);
-        setTimeout(function() {
-            codeCheck();     
-        }, 200);
-    }
+    buttonPress($bigButton);
+    buttonOff();   
+    setTimeout(function() {
+        // codeCheck(); 
+        tetsu();
+    }, 200);
 }
 
+function buttonOn() {
+    $bigButton.on('click', function() {
+        startGame();
+        $tryAgain.css("display", "none");
+    });
+}
+
+function buttonOff() {
+    $('#button').off('click');
+}
 
 function buttonPress(obj) {
     var origHeight = obj.css('height');
@@ -37,16 +43,13 @@ function reboot() {
     clearInterval(plasmaTimer);
     clearInterval(tetsuTimer);
     clearInterval(punchTimer);
-    $ken.removeClass('kick');
-    $ken.removeClass('punch');
-    $ken.removeClass('hadoken');
-    $ken.addClass('stance');
+    clearInterval(jumpTimer);
     $ken.css('left', kenOrigPosLeft)
     $ken.css('top', kenOrigPosTop)   
     $result.css("display", "none");
     $tryAgain.css("display", "none");
-    destroyCode();
 }
+
 function destroyCode() {
     $code.val(""); 
 }
@@ -59,17 +62,29 @@ function tryAgain() {
     $tryAgain.css("display", "block");
 }
 
+function explode() {
+    $explosion.css('display', 'block');
+    editor.setValue('');
+
+    setTimeout(function() {
+        $explosion.css('display', 'none');
+
+    }, 800);
+}
+
 //  ============== perfect ==============
 
 function perfect() {
+    $tryAgain.css("display", "none");
     $ken.addClass('perfect');
     setTimeout(function() { $ken.removeClass('perfect'); }, 600);
-    setInterval(function(){ 
-        var plasmaLeft = -50;
-        $plasma
-    });
     $ken.css("background-position", "-160px -690px");
     $result.css("display", "block");
+    setTimeout(function() {
+        $ken.addClass('stance');
+        buttonOn();
+        $result.css("display", "none");
+    }, 2000);
 }
 
 
@@ -85,12 +100,13 @@ function resetPlasma() {
     $plasma.removeClass('plasma');
     $plasma.css('left', (plasmaOrigPos + 'px'));
     clearInterval(plasmaTimer);
+    buttonOn();
 }
 
 function plasmaMove() {
     var plasmaCurrentPos = parseInt($plasma.css('left'));
     $plasma.css('left', ((plasmaCurrentPos + plasmaDistance) + 'px'));
-    if (parseInt($plasma.css('left')) > 300) {
+    if (parseInt($plasma.css('left')) > 150) {
         resetPlasma();
         destroyCode();
         tryAgain(); 
@@ -98,6 +114,7 @@ function plasmaMove() {
 }
 
 function hadoken() {
+    $tryAgain.css("display", "none");
     $ken.addClass('hadoken');
     setTimeout(function() { 
         $plasma.addClass('plasma'); 
@@ -115,27 +132,31 @@ var tetsuDelay = 100;
 var tetsuDistance = 40;
 var tetsuTimer = null;
 
-function tetsuMove() {
-    kenCurrentPosLeft = parseInt($ken.css('left'));
-    $ken.css('left', ((kenCurrentPosLeft + tetsuDistance) + 'px'));
-    if (parseInt($ken.css('left')) > 300) {
-        tetsuDistance = -40
-        destroyCode();
-        tryAgain(); 
-
-    } else if (parseInt($ken.css('left')) < -130) {
-        reboot();
-        tetsuDistance = 40
-    }
-}
-
 function resetTetsu() {
     $ken.removeClass('kick');
     $ken.css('left', (kenOrigPosLeft + 'px'));
     clearInterval(tetsuTimer);
+    buttonOn();
 }
 
+function tetsuMove() {
+    kenCurrentPosLeft = parseInt($ken.css('left'));
+    $ken.css('left', ((kenCurrentPosLeft + tetsuDistance) + 'px'));
+    if (parseInt($ken.css('left')) > 90) {
+        tetsuDistance = -40;
+        explode();
+        destroyCode();
+        tryAgain(); 
+    } else if (parseInt($ken.css('left')) < -130) {
+        resetTetsu();
+        tetsuDistance = 40
+    }
+}
+
+
+
 function tetsu() {
+    $tryAgain.css("display", "none");
     $ken.addClass('kick');
     tetsuTimer = setInterval(function(){
         tetsuMove();
@@ -151,9 +172,11 @@ var punchTimer = null;
 var punchDistance = -40;
 
 function resetPunch() {
- $ken.removeClass('punch');
- $ken.css('top', (kenOrigPosTop + 'px'));
- clearInterval(punchTimer);   
+    punchDistance = -40;
+    $ken.removeClass('punch');
+    clearInterval(punchTimer);   
+    buttonOn();
+
 }
 
 function punchMove() {
@@ -166,11 +189,12 @@ function punchMove() {
 
     } else if (parseInt($ken.css('top')) > kenOrigPosTop) {
         resetPunch();
-        punchDistance = -40;
+        jumpBack();
     }
 }
 
 function dragonPunch() {
+    $tryAgain.css("display", "none");
     $ken.addClass('punch');
     punchTimer = setInterval(function() {
         punchMove();
@@ -183,11 +207,11 @@ function dragonPunch() {
 var jumpDelay = 100;
 var jumpTimer = null;
 var jumpUp = -40;
-var jumpRight = 40;
+var jumpRight = 20;
 
 
 
-function jumpMove() {
+function jumpForwardMove() {
     kenCurrentPosLeft = parseInt($ken.css('left'));
     kenCurrentPosTop = parseInt($ken.css('top'));
 
@@ -197,20 +221,49 @@ function jumpMove() {
     if (parseInt($ken.css('top')) < -120) {
         jumpUp = 40
     }
-    if (parseInt($ken.css('left')) > 220) {
+    if (parseInt($ken.css('left')) > 60) {
         $ken.removeClass('jump');
-       clearInterval(jumpTimer); 
-       dragonPunch();
-   }
+        clearInterval(jumpTimer); 
+        dragonPunch();
+    }
+}
+
+function jumpForward() {
+    $tryAgain.css("display", "none");
+    $ken.addClass('jump');
+    jumpTimer = setInterval(function() {
+        jumpForwardMove();
+    }, jumpDelay)
 }
 
 
+function jumpBackMove() {
+    kenCurrentPosLeft = parseInt($ken.css('left'));
+    kenCurrentPosTop = parseInt($ken.css('top'));
 
-function jump() {
+    $ken.css('left', ((kenCurrentPosLeft + jumpRight) + 'px'));
+    $ken.css('top', ((kenCurrentPosTop + jumpUp) + 'px'));
+
+    if (parseInt($ken.css('top')) < -120) {
+        jumpUp = 40
+    }
+    if (parseInt($ken.css('left')) < -95) {
+        // reboot();
+        $ken.removeClass('jump');
+        clearInterval(jumpTimer); 
+        jumpUp = -40;
+        jumpRight = 40;
+    }
+}
+
+function jumpBack() {
+    jumpRight = -20;
+    jumpUp = -40;
     $ken.addClass('jump');
     jumpTimer = setInterval(function() {
-        jumpMove();
+        jumpBackMove();
     }, jumpDelay)
+
 }
 
 function codeCheck() {
@@ -220,7 +273,7 @@ function codeCheck() {
     //     noCode();
     // } else 
     if (random <= 0.25) {
-        jump();
+        jumpForward();
     } else if ((random > 0.25) && (random <= 0.5) ) {
         tetsu();
     } else if ((random > 0.25) && (random <= 0.75)) {

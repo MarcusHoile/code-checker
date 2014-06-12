@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 	<title>Code Checker</title>
+
+	<script src="javascripts/codemirror.js"></script>
+	<link href="stylesheets/codemirror.css" media="screen" rel="stylesheet" type="text/css" /> 
+	<script src="mode/javascript/javascript.js"></script>
 	<link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> 
 	<link rel="stylesheet" href="stylesheets/simplegrid.css" rel="stylesheet" type="text/css"> 
 	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -47,6 +51,7 @@
 				<div class="ken">
 				</div>
 				<div class="hadoken-plasma"></div>
+				<div class="explosion"><img src="assets/giphy.gif" alt=""></div>
 
 				<textarea name="" id="code" cols="60" rows="40" placeholder="ENTER YOUR CODE HERE, IF YOU DARE!"></textarea>
 			</div>
@@ -74,6 +79,7 @@
 
 
 <script>
+
 var $ken;
 var audioElement = document.createElement('audio');
 var $result;
@@ -82,8 +88,10 @@ var $tryAgain;
 var $pointers;
 var $plasma;
 var $bigButton;
+var $explosion;
 var kenCurrentPosTop;
 var kenCurrentPosLeft;
+var editor;
 
 
 
@@ -94,9 +102,12 @@ $(document).ready(function() {
 	$code = $('#code');
 	$tryAgain = $('#try-again');
 	$pointers = $('.pointers');
-	// setInterval(function(){
-	// 	$pointers.toggleClass("point") }, 300);
-
+	$explosion = $('.explosion');
+	editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+		lineNumbers: true,
+		matchBrackets: true,
+		mode: "javascript"
+	});
 
 	$bigButton = $('#button');
 	var $reboot = $('#reboot').on('click', function() {
@@ -106,13 +117,7 @@ $(document).ready(function() {
 	$ken.addClass('stance');
 	audioElement.setAttribute('src', 'assets/perfect.mp3');
 
-	$('#button').on('click', function() {
-		if ($result.css("display") ==  "block") {
-			reboot();
-		} else {
-			startGame();
-		}
-	});
+	buttonOn();
 });
 </script>
 </body>
