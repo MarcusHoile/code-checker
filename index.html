@@ -16,38 +16,35 @@
 	<title>Document</title>
 </head>
 <body>
-	<div class="col-1-1" id="header">
-		<h1>site title here</h1>
-		<div id="reboot">Reset</div>		
-	</div>
-	<div class="col-1-1">
-		<p>Dump your code. Ken will evaluate.</p>
-
-	</div>
-	<div class="col-1-1 result-bar">
-		<div id="result-container">
-			<img src="assets/perfect1.gif" alt="" id="result">
-			<div id="try-again">Try Again</div>
+	<div class="container">
+		<div class="col-1-1" id="header">
+			<h1>site title here</h1>
+			<div id="reboot">Reset</div>		
 		</div>
-	</div>
-	<div class="col-1-1">
-		<div class="col-3-12 controls">
-
-			<div id="button-container">
-				<div id="button-edge">
-					<div id="highlight">
-						<div id="button">
-							<div id="button-top-highlight"></div>
-							<div id="button-bottom-highlight"></div>
-						</div>
-					</div>
-				</div>
-
+		<div class="col-1-1 result-bar">
+			<div id="result-container">
+				<img src="assets/perfect1.gif" alt="" id="result">
+				<div id="try-again">Try Again</div>
 			</div>
 		</div>
+		<div class="col-1-1 controls">
 
-		<div class="col-9-12">
-			<div class="col-8-12 input-window" id="wrapper">
+			<div class="controls-container">
+				<div id="button-container">
+					<div id="button-edge">
+						<div id="highlight">
+							<div id="button">
+								<div id="button-top-highlight"></div>
+								<div id="button-bottom-highlight"></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+			<div class=" input-window" id="wrapper">
 				<div class="ken">
 				</div>
 				<div class="hadoken-plasma"></div>
@@ -55,70 +52,54 @@
 
 				<textarea name="" id="code" cols="60" rows="40" placeholder="ENTER YOUR CODE HERE, IF YOU DARE!"></textarea>
 			</div>
-
-			<div class="col-4-12 inline">
-
-				<div class="col-1-12 inline" id="pointers">
-					<p class="pointers"><</p>
-					<p class="pointers"><</p>
-					<p class="pointers"><</p>
-					<p class="pointers"><</p>
-					<p class="pointers"><</p>
-					<p class="pointers"><</p>
-					<p class="pointers"><</p>
-					<p class="pointers"><</p>
-				</div>
-				<div class="col-11-12 inline">
-					<p id="cta">copy pointing back at code</p>
-				</div>
-			</div> <!-- right hand container -->
 		</div>
+
+
 	</div>
-</div>
+
+	<script>
+
+	var $ken;
+	var audioElement = document.createElement('audio');
+	var $result;
+	var $code;
+	var $tryAgain;
+	var $pointers;
+	var $plasma;
+	var $bigButton;
+	var $explosion;
+	var kenCurrentPosTop;
+	var kenCurrentPosLeft;
+	var editor;
+	var kenOrigPosLeft;
+	var kenOrigPosTop;
 
 
+	$(document).ready(function() {
+		$ken = $('.ken');
+		$plasma = $('.hadoken-plasma');
+		$result = $('#result');
+		$code = $('#code');
+		$tryAgain = $('#try-again');
+		$pointers = $('.pointers');
+		$explosion = $('.explosion');
+		editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+			lineNumbers: true,
+			matchBrackets: true,
+			mode: "javascript"
+		});
+		kenOrigPosLeft = parseInt($ken.css('left'));
+		kenOrigPosTop = parseInt($ken.css('top'));
+		$bigButton = $('#button');
+		var $reboot = $('#reboot').on('click', function() {
+			reboot();
+		});
 
-<script>
+		$ken.addClass('stance');
+		audioElement.setAttribute('src', 'assets/perfect.mp3');
 
-var $ken;
-var audioElement = document.createElement('audio');
-var $result;
-var $code;
-var $tryAgain;
-var $pointers;
-var $plasma;
-var $bigButton;
-var $explosion;
-var kenCurrentPosTop;
-var kenCurrentPosLeft;
-var editor;
-
-
-
-$(document).ready(function() {
-	$ken = $('.ken');
-	$plasma = $('.hadoken-plasma');
-	$result = $('#result');
-	$code = $('#code');
-	$tryAgain = $('#try-again');
-	$pointers = $('.pointers');
-	$explosion = $('.explosion');
-	editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-		lineNumbers: true,
-		matchBrackets: true,
-		mode: "javascript"
+		buttonOn();
 	});
-
-	$bigButton = $('#button');
-	var $reboot = $('#reboot').on('click', function() {
-		reboot();
-	});
-
-	$ken.addClass('stance');
-	audioElement.setAttribute('src', 'assets/perfect.mp3');
-
-	buttonOn();
-});
-</script>
+	</script>
 </body>
 </html>

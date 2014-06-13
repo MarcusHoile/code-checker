@@ -2,8 +2,8 @@ function startGame(){
     buttonPress($bigButton);
     buttonOff();   
     setTimeout(function() {
-        // codeCheck(); 
-        tetsu();
+        codeCheck(); 
+        // jumpForward();
     }, 200);
 }
 
@@ -35,8 +35,7 @@ function buttonPress(obj) {
     }, 200);
 }
 
-var kenOrigPosLeft = -105;
-var kenOrigPosTop = 0;
+
 
 // ========== resets and end points =======
 function reboot() {
@@ -44,8 +43,8 @@ function reboot() {
     clearInterval(tetsuTimer);
     clearInterval(punchTimer);
     clearInterval(jumpTimer);
-    $ken.css('left', kenOrigPosLeft)
-    $ken.css('top', kenOrigPosTop)   
+    $ken.css('left', kenOrigPosLeft);
+    $ken.css('top', kenOrigPosTop);   
     $result.css("display", "none");
     $tryAgain.css("display", "none");
 }
@@ -55,11 +54,17 @@ function destroyCode() {
 }
 
 function noCode() {
-    alert("Gimme yer code!");
+    $ken.addClass('angry');
+    setTimeout(function(){
+        $ken.removeClass('angry');
+    }, 1200);
 }
 
 function tryAgain() {
     $tryAgain.css("display", "block");
+    setTimeout(function(){
+        $tryAgain.css("display", "none");
+    }, 800);
 }
 
 function explode() {
@@ -78,7 +83,7 @@ function perfect() {
     $tryAgain.css("display", "none");
     $ken.addClass('perfect');
     setTimeout(function() { $ken.removeClass('perfect'); }, 600);
-    $ken.css("background-position", "-160px -690px");
+    $ken.css("background-position", "-320px -1380px");
     $result.css("display", "block");
     setTimeout(function() {
         $ken.addClass('stance');
@@ -147,7 +152,7 @@ function tetsuMove() {
         explode();
         destroyCode();
         tryAgain(); 
-    } else if (parseInt($ken.css('left')) < -130) {
+    } else if (parseInt($ken.css('left')) < -250) {
         resetTetsu();
         tetsuDistance = 40
     }
@@ -167,7 +172,7 @@ function tetsu() {
 
 
 //  ============== dragon punch ============
-var punchDelay = 100;
+var punchDelay = 60;
 var punchTimer = null;
 var punchDistance = -40;
 
@@ -182,12 +187,10 @@ function resetPunch() {
 function punchMove() {
     kenCurrentPosTop = parseInt($ken.css('top'));
     $ken.css('top', ((kenCurrentPosTop + punchDistance) + 'px'));
-    if (parseInt($ken.css('top')) < -120) {
-        punchDistance = 40;
-        destroyCode();
-        tryAgain(); 
+    if (parseInt($ken.css('top')) < -110) {
 
-    } else if (parseInt($ken.css('top')) > kenOrigPosTop) {
+        punchDistance = 40;
+    } else if (parseInt($ken.css('top')) > (jumpHeight + 260)) {
         resetPunch();
         jumpBack();
     }
@@ -204,10 +207,11 @@ function dragonPunch() {
 
 
 //  ============== jump ============
-var jumpDelay = 100;
+var jumpDelay = 80;
 var jumpTimer = null;
-var jumpUp = -40;
+var jumpDirection = -40;
 var jumpRight = 20;
+var jumpHeight = -120;
 
 
 
@@ -216,12 +220,12 @@ function jumpForwardMove() {
     kenCurrentPosTop = parseInt($ken.css('top'));
 
     $ken.css('left', ((kenCurrentPosLeft + jumpRight) + 'px'));
-    $ken.css('top', ((kenCurrentPosTop + jumpUp) + 'px'));
+    $ken.css('top', ((kenCurrentPosTop + jumpDirection) + 'px'));
 
-    if (parseInt($ken.css('top')) < -120) {
-        jumpUp = 40
+    if (parseInt($ken.css('top')) < jumpHeight) {
+        jumpDirection = 40
     }
-    if (parseInt($ken.css('left')) > 60) {
+    if (parseInt($ken.css('top')) > 140) {
         $ken.removeClass('jump');
         clearInterval(jumpTimer); 
         dragonPunch();
@@ -242,23 +246,23 @@ function jumpBackMove() {
     kenCurrentPosTop = parseInt($ken.css('top'));
 
     $ken.css('left', ((kenCurrentPosLeft + jumpRight) + 'px'));
-    $ken.css('top', ((kenCurrentPosTop + jumpUp) + 'px'));
+    $ken.css('top', ((kenCurrentPosTop + jumpDirection) + 'px'));
 
     if (parseInt($ken.css('top')) < -120) {
-        jumpUp = 40
+        jumpDirection = 40
     }
-    if (parseInt($ken.css('left')) < -95) {
-        // reboot();
+    if (parseInt($ken.css('left')) < kenOrigPosLeft) {
+        reboot();
         $ken.removeClass('jump');
         clearInterval(jumpTimer); 
-        jumpUp = -40;
-        jumpRight = 40;
+        jumpDirection = -40;
+        jumpRight = 20;
     }
 }
 
 function jumpBack() {
     jumpRight = -20;
-    jumpUp = -40;
+    jumpDirection = -40;
     $ken.addClass('jump');
     jumpTimer = setInterval(function() {
         jumpBackMove();
