@@ -670,8 +670,9 @@ p {
 }
 
 /* line 215, ../sass/screen.scss */
-#highlight {
-  background: -webkit-radial-gradient(red 55%, #640202 68%, black);
+#shadow {
+  position: relative;
+  background: -webkit-radial-gradient(red 55%, #640202 58%, black);
   margin-left: 6px;
   height: 86.5px;
   width: 86.5px;
@@ -679,8 +680,9 @@ p {
   top: 2px;
 }
 
-/* line 224, ../sass/screen.scss */
+/* line 225, ../sass/screen.scss */
 #button {
+  position: absolute;
   background: #cc1e14;
   border-bottom: solid red 4px;
   border-top: solid red 2px;
@@ -691,7 +693,7 @@ p {
   border-radius: 100px;
 }
 
-/* line 235, ../sass/screen.scss */
+/* line 237, ../sass/screen.scss */
 #button-top-highlight {
   margin-top: 2px;
   width: 66.5px;
@@ -702,7 +704,7 @@ p {
   background: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.4));
 }
 
-/* line 245, ../sass/screen.scss */
+/* line 247, ../sass/screen.scss */
 #button-bottom-highlight {
   margin-top: 8.5px;
   width: 66.5px;
@@ -713,7 +715,7 @@ p {
   background: -webkit-linear-gradient(top, rgba(255, 0, 0, 0) 60%, rgba(100, 2, 2, 0.4));
 }
 
-/* line 254, ../sass/screen.scss */
+/* line 256, ../sass/screen.scss */
 .ken {
   position: absolute;
   top: 0px;
@@ -725,7 +727,7 @@ p {
   background-position: 0px -80px;
   margin: 20px auto;
 }
-/* line 262, ../sass/screen.scss */
+/* line 264, ../sass/screen.scss */
 .ken img {
   height: 160px;
   width: 160px;
@@ -733,13 +735,13 @@ p {
   z-index: 3;
 }
 
-/* line 270, ../sass/screen.scss */
+/* line 272, ../sass/screen.scss */
 #wrapper {
   position: relative;
   display: inline-block;
 }
 
-/* line 276, ../sass/screen.scss */
+/* line 278, ../sass/screen.scss */
 .hadoken-plasma {
   position: absolute;
   top: 13px;
@@ -751,14 +753,14 @@ p {
   background-position: -920px -160px;
   z-index: 3;
 }
-/* line 284, ../sass/screen.scss */
+/* line 286, ../sass/screen.scss */
 .hadoken-plasma img {
   height: 160px;
   width: 160px;
   margin: 20px;
 }
 
-/* line 290, ../sass/screen.scss */
+/* line 292, ../sass/screen.scss */
 .explosion {
   position: absolute;
   top: -120px;

@@ -212,16 +212,18 @@ p {
 	
 // }
 
-#highlight {
-	background: -webkit-radial-gradient( #ff0000 55%, #640202 68%, #000);
-	margin-left:$button-size * 0.06;
-	height:($button-size * 0.865);
-	width:($button-size * 0.865);
-	border-radius:$button-size;
-	top:$button-size * 0.02;
+#shadow {
+	position:relative;
+	background: -webkit-radial-gradient( #ff0000 55%, #640202 58%, #000);
+	margin-left:100px * 0.06;
+	height:(100px * 0.865);
+	width:(100px * 0.865);
+	border-radius:100px;
+	top:100px * 0.02;
 }	
 
 #button {
+	position:absolute;
 	background: $button-bg-color;
 	border-bottom: solid $button-border 4px;
 	border-top: solid $button-border 2px;
@@ -293,7 +295,6 @@ p {
 	left: -80px;
 	display:none;
 }
-
 
 
 

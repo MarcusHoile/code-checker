@@ -23,15 +23,15 @@ function buttonPress(obj) {
     var origWidth = obj.css('width');
     var origMarginLeft = obj.css('left');
     var origMarginTop = obj.css('marginTop');
-    obj.css('height','80px');
-    obj.css('width', '80px');
-    obj.css('left', '4px');
-    obj.css('marginTop', '2px');
+    obj.css('height','78px');
+    obj.css('width', '75px');
+    obj.css('marginTop', '4px');
+    obj.css('left', "2px");
     setTimeout(function(){
         obj.css('height', origHeight);
         obj.css('width', origWidth);
-        obj.css('left', origMarginLeft);
         obj.css('marginTop', origMarginTop);
+        obj.css('left', origMarginLeft);
     }, 200);
 }
 
