@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
 	<title>Code Checker</title>
-
-	<script src="javascripts/codemirror.js"></script>
-	<link href="stylesheets/codemirror.css" media="screen" rel="stylesheet" type="text/css" /> 
-	<script src="mode/javascript/javascript.js"></script>
 	<link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> 
 	<link rel="stylesheet" href="stylesheets/simplegrid.css" rel="stylesheet" type="text/css"> 
 	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+
+	<link href="stylesheets/codemirror.css" media="screen" rel="stylesheet" type="text/css" /> 
+	<script src="javascripts/codemirror.js"></script>
+
+	<script src="mode/javascript/javascript.js"></script>
+	<script src="mode/ruby/ruby.js"></script>
 	<script type="text/javascript" src="javascripts/jquery.js"></script>
 	<script type="text/javascript" src="javascripts/custom.js"></script>
 
@@ -17,14 +19,13 @@
 </head>
 <body>
 	<div class="container">
-		<div class="col-1-1" id="header">
-			<h1>site title here</h1>
-			<div id="reboot">Reset</div>		
-		</div>
 		<div class="col-1-1 result-bar">
+
 			<div id="result-container">
+			<div id="reboot">Reset</div>		
+
 				<img src="assets/perfect1.gif" alt="" id="result">
-				<div id="try-again">Try Again</div>
+				<div id="response"></div>
 			</div>
 		</div>
 		<div class="col-1-1 controls">
@@ -44,13 +45,11 @@
 			</div>
 
 
-			<div class=" input-window" id="wrapper">
-				<div class="ken">
-				</div>
+			<div class="input-window" id="wrapper">
+				<div class="ken"></div>
 				<div class="hadoken-plasma"></div>
 				<div class="explosion"><img src="assets/giphy.gif" alt=""></div>
-
-				<textarea name="" id="code" cols="60" rows="40" placeholder="ENTER YOUR CODE HERE, IF YOU DARE!"></textarea>
+				<textarea name="code" id="code"></textarea>
 			</div>
 		</div>
 
@@ -63,7 +62,7 @@
 	var audioElement = document.createElement('audio');
 	var $result;
 	var $code;
-	var $tryAgain;
+	var $response;
 	var $pointers;
 	var $plasma;
 	var $bigButton;
@@ -85,7 +84,6 @@
 		$explosion = $('.explosion');
 		editor = CodeMirror.fromTextArea(document.getElementById("code"), {
 			lineNumbers: true,
-			matchBrackets: true,
 			mode: "javascript"
 		});
 		kenOrigPosLeft = parseInt($ken.css('left'));

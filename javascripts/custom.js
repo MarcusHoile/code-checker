@@ -50,13 +50,14 @@ function reboot() {
 }
 
 function destroyCode() {
-    $code.val(""); 
+    editor.setValue('');
 }
 
 function noCode() {
     $ken.addClass('angry');
     setTimeout(function(){
         $ken.removeClass('angry');
+        buttonOn();           
     }, 1200);
 }
 
@@ -119,7 +120,7 @@ function plasmaMove() {
 }
 
 function hadoken() {
-    $tryAgain.css("display", "none");
+    $result.val("It's Broken!");
     $ken.addClass('hadoken');
     setTimeout(function() { 
         $plasma.addClass('plasma'); 
@@ -161,7 +162,7 @@ function tetsuMove() {
 
 
 function tetsu() {
-    $tryAgain.css("display", "none");
+    $result.val("This text looks like code bullshit!");
     $ken.addClass('kick');
     tetsuTimer = setInterval(function(){
         tetsuMove();
@@ -272,11 +273,9 @@ function jumpBack() {
 
 function codeCheck() {
     var random = Math.random();
-    $result.val();
-    // if ($code.val() == "") {
-    //     noCode();
-    // } else 
-    if (random <= 0.25) {
+    if (editor.getValue() == "") {
+        noCode();
+    } else if (random <= 0.25) {
         jumpForward();
     } else if ((random > 0.25) && (random <= 0.5) ) {
         tetsu();
