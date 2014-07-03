@@ -27,6 +27,13 @@ html, body {
 .col-1-1 > div {
 	display:inline-block;
 }
+#response {
+	font-size: 36px;
+	height: 40px;
+	color: $font-color-2;
+	position: absolute;
+	right: 30%;
+}
 
 
 #header {

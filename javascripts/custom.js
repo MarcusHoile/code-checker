@@ -3,14 +3,13 @@ function startGame(){
     buttonOff();   
     setTimeout(function() {
         codeCheck(); 
-        // jumpForward();
     }, 200);
 }
 
 function buttonOn() {
     $bigButton.on('click', function() {
         startGame();
-        $tryAgain.css("display", "none");
+        $response.html('');
     });
 }
 
@@ -55,8 +54,10 @@ function destroyCode() {
 
 function noCode() {
     $ken.addClass('angry');
+    $response.html('Gimme yer code you wussy');
     setTimeout(function(){
         $ken.removeClass('angry');
+        $response.html('');
         buttonOn();           
     }, 1200);
 }
@@ -120,7 +121,7 @@ function plasmaMove() {
 }
 
 function hadoken() {
-    $result.val("It's Broken!");
+    $response.html("It's Bullshit!");
     $ken.addClass('hadoken');
     setTimeout(function() { 
         $plasma.addClass('plasma'); 
@@ -128,7 +129,10 @@ function hadoken() {
             plasmaMove();
         }, plasmaDelay);  
     }, 400);
-    setTimeout(function() { $ken.removeClass('hadoken'); }, 500);
+    setTimeout(function() { 
+        $ken.removeClass('hadoken'); 
+        $response.html('');
+    }, 500);
 }
 
 
@@ -140,6 +144,7 @@ var tetsuTimer = null;
 
 function resetTetsu() {
     $ken.removeClass('kick');
+    $response.html('');
     $ken.css('left', (kenOrigPosLeft + 'px'));
     clearInterval(tetsuTimer);
     buttonOn();
@@ -162,7 +167,7 @@ function tetsuMove() {
 
 
 function tetsu() {
-    $result.val("This text looks like code bullshit!");
+    $response.html("This code to me looks like bullshit!");
     $ken.addClass('kick');
     tetsuTimer = setInterval(function(){
         tetsuMove();
@@ -182,7 +187,7 @@ function resetPunch() {
     $ken.removeClass('punch');
     clearInterval(punchTimer);   
     buttonOn();
-
+    $response.html('');
 }
 
 function punchMove() {
@@ -198,7 +203,7 @@ function punchMove() {
 }
 
 function dragonPunch() {
-    $tryAgain.css("display", "none");
+    $response.html("Are you kidding me?");
     $ken.addClass('punch');
     punchTimer = setInterval(function() {
         punchMove();
