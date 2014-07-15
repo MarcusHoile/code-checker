@@ -114,6 +114,8 @@ html, body {
 
 $spriteWidth:160px;
 $spriteHeight:230px;
+$explosionWidth: 240px;
+$explosionHeight: 320px;
 
 @mixin anim($animName, $steps, $animNbr, $animParams){
     .#{$animName} { 
@@ -123,6 +125,16 @@ $spriteHeight:230px;
     @include keyframes($animName) {
         from { background-position:0px (-$spriteHeight * ($animNbr - 1)); }
         to { background-position:-($spriteWidth * $steps) (-$spriteHeight * ($animNbr - 1)); }
+    }
+}
+@mixin anim2($animName, $steps, $animNbr, $animParams){
+    .#{$animName} { 
+        @content;
+        @include animation($animName steps($steps) $animParams); 
+    }
+    @include keyframes($animName) {
+        from { background-position:0px (-$explosionHeight * ($animNbr - 1)); }
+        to { background-position:-($explosionWidth * $steps) (-$explosionHeight * ($animNbr - 1)); }
     }
 }
 
@@ -142,6 +154,12 @@ $spriteHeight:230px;
 @include anim($animName:jump, $steps:8, $animNbr:9, $animParams:1.5s infinite);
 
 @include anim($animName:angry, $steps:1, $animNbr:10, $animParams:1.5s infinite);
+
+@include anim2($animName:explosion, $steps:17, $animNbr:1, $animParams:.8s infinite);
+
+@include anim2($animName:nuclear, $steps:15, $animNbr:2, $animParams:.8s infinite);
+
+
 
 
 
@@ -275,14 +293,45 @@ p {
 	background-image:url('images/Ken-sprite.png'); 
 	background-position: 0px -80px;
 	margin:20px auto;
-	z-index:4;
+	z-index:9;
 	img {
 		height:160px;
 		width:160px;
 		margin: 20px;
 	}
 }
-
+.explosion { 
+	position: absolute;
+	top: -220px;
+	left: 5px;
+	width: $explosionWidth; height: $explosionHeight; /* exactly the size of an image in our sprite */
+	background-image:url('images/explosion.png'); 
+	// background-position: 0px -80px;
+	margin:20px auto;
+	z-index:4;
+	display:none;
+	img {
+		height:160px;
+		width:120px;
+		margin: 20px;
+	}
+}
+.nuclear { 
+	position: absolute;
+	top: -200px;
+	left: 50px;
+	width: $explosionWidth; height: $explosionHeight; /* exactly the size of an image in our sprite */
+	background-image:url('images/explosion.png'); 
+	// background-position: 0px -80px;
+	margin:20px auto;
+	z-index:4;
+	display:none;
+	img {
+		height:160px;
+		width:120px;
+		margin: 20px;
+	}
+}
 #wrapper {
 	position:relative;
 	display:inline-block;
@@ -302,13 +351,6 @@ p {
 		width:160px;
 		margin: 20px;
 	}
-}
-.explosion {
-	position: absolute;
-	top: -120px;
-	left: -80px;
-	z-index:3;
-	display:none;
 }
 
 

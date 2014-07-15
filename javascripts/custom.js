@@ -48,10 +48,6 @@ function reboot() {
     $tryAgain.css("display", "none");
 }
 
-function destroyCode() {
-    editor.setValue('');
-}
-
 function noCode() {
     $ken.addClass('angry');
     $response.html('Gimme yer code you wussy');
@@ -71,10 +67,23 @@ function tryAgain() {
 
 function explode() {
     $explosion.css('display', 'block');
-    editor.setValue('');
+    setTimeout(function(){
+        editor.setValue('');
+    }, 250);
 
     setTimeout(function() {
         $explosion.css('display', 'none');
+
+    }, 800);
+}
+function nuke() {
+    $nuclear.css('display', 'block');
+    setTimeout(function(){
+        editor.setValue('');
+    }, 280);
+
+    setTimeout(function() {
+        $nuclear.css('display', 'none');
 
     }, 800);
 }
@@ -115,7 +124,6 @@ function plasmaMove() {
     $plasma.css('left', ((plasmaCurrentPos + plasmaDistance) + 'px'));
     if (parseInt($plasma.css('left')) > 150) {
         resetPlasma();
-        destroyCode();
         tryAgain(); 
     }
 }
@@ -133,6 +141,10 @@ function hadoken() {
         $ken.removeClass('hadoken'); 
         $response.html('');
     }, 500);
+    setTimeout(function() {
+        nuke();
+
+    }, 1200);
 }
 
 
@@ -155,8 +167,7 @@ function tetsuMove() {
     $ken.css('left', ((kenCurrentPosLeft + tetsuDistance) + 'px'));
     if (parseInt($ken.css('left')) > 90) {
         tetsuDistance = -40;
-        explode();
-        destroyCode();
+        nuke();
         tryAgain(); 
     } else if (parseInt($ken.css('left')) < -250) {
         resetTetsu();
@@ -208,6 +219,10 @@ function dragonPunch() {
     punchTimer = setInterval(function() {
         punchMove();
     }, punchDelay)
+    setTimeout(function(){
+        explode();
+
+    }, 140);
 }
 
 
