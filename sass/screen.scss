@@ -19,6 +19,13 @@ html, body {
 	padding:0;
 	height: 100%;
 }
+h1 {
+	padding: 20px;
+	font-family: 'Gravitas One', cursive;
+	font-size: 28px;
+	text-align: left;
+	color: yellow;
+}
 .container {
 	width: 100%;
 	min-height: 100%;
@@ -31,8 +38,6 @@ html, body {
 	font-size: 36px;
 	height: 40px;
 	color: $font-color-2;
-	position: absolute;
-	right: 30%;
 }
 
 
@@ -41,13 +46,17 @@ html, body {
 	margin:0;
 	padding: 0;
 }
+.result-bar {
+	position: relative;
+}
 
 #result-container {
-	position: relative;
-	padding:40px;
+	position: absolute;
+	padding:10px;
 	margin-bottom: 40px;
-	width: 100%;
-	height: 60px;
+	left: 400px;
+	top: 0px;
+	z-index:9;
 	#result {
 		margin: 0 auto;
 		display:none;
@@ -63,41 +72,23 @@ html, body {
 	height:40px;
 	position:absolute;
 }
-.controls {
+.input-container {
 	height: 410px;
 	max-width: 960px;
-	margin: 0 10%;
-	// margin-left:5%;
-	// > div {
-	// 	margin: 40px 0;
-	// 	margin-left: 10%;
-	// }
+	margin: 20px 20% 0 20%;
+
 }
 
 .controls-container {
 	width:35%;
-	margin-top: 120px;
-	// margin-left: 30%;
+	margin-top: 20px;
 	display: inline-block;
 }
 
 
 
 
-#reboot {
-	float:right;
-	margin: 0 auto;
-	line-height: 40px;
-	height: 40px;
-	width: 100px;
-	background: $bg-color-2;
-	color: $font-color-1;
-	&:hover {
-		cursor:pointer;
-		background: darken($bg-color-2, 10%);
-	}
 
-}
 
 @mixin animation($params) { 
     -webkit-animation:$params;
@@ -155,9 +146,15 @@ $explosionHeight: 320px;
 
 @include anim($animName:angry, $steps:1, $animNbr:10, $animParams:1.5s infinite);
 
-@include anim2($animName:explosion, $steps:17, $animNbr:1, $animParams:.8s infinite);
+@include anim($animName:lost, $steps:3, $animNbr:11, $animParams:.6s infinite);
 
-@include anim2($animName:nuclear, $steps:15, $animNbr:2, $animParams:.8s infinite);
+
+@include anim2($animName:explode, $steps:17, $animNbr:1, $animParams:.8s infinite);
+
+@include anim2($animName:nuke-top, $steps:15, $animNbr:2, $animParams:.8s infinite);
+
+@include anim2($animName:nuke-bottom, $steps:15, $animNbr:3, $animParams:.8s infinite);
+
 
 
 
@@ -285,6 +282,22 @@ p {
 	border-bottom-right-radius: $button-size;
 	background: -webkit-linear-gradient(top,rgba(255,0,0,0) 60%, rgba(100,2,2,0.4));
 }
+#try-again {
+	position: relative;
+	margin: 0 auto;
+	line-height: 40px;
+	height: 40px;
+	width: 100px;
+	top: -200px;
+	display: none;
+	z-index: 9;
+	background: $bg-color-2;
+	color: $font-color-1;
+	&:hover {
+		cursor:pointer;
+		background: darken($bg-color-2, 10%);
+	}
+}
 .ken { 
 	position: absolute;
 	top: 0px;
@@ -299,6 +312,26 @@ p {
 		width:160px;
 		margin: 20px;
 	}
+}
+
+.base { 
+	position: absolute;
+	top: 230px;
+	left: -250px;
+	background: #1A1309;
+	height: 150px;
+	width: 250px;
+	margin:20px auto;
+}
+.platform { 
+	position: absolute;
+	border-bottom: 40px solid #704026;
+	border-left: 100px solid transparent;
+	top: 190px;
+	left: -250px;
+	height: 0;
+	width: 250px;
+	margin:20px auto;
 }
 .explosion { 
 	position: absolute;
@@ -316,13 +349,28 @@ p {
 		margin: 20px;
 	}
 }
-.nuclear { 
+.top { 
 	position: absolute;
-	top: -200px;
+	top: -170px;
 	left: 50px;
 	width: $explosionWidth; height: $explosionHeight; /* exactly the size of an image in our sprite */
 	background-image:url('images/explosion.png'); 
 	// background-position: 0px -80px;
+	margin:20px auto;
+	z-index:4;
+	display:none;
+	img {
+		height:160px;
+		width:120px;
+		margin: 20px;
+	}
+}
+.bottom { 
+	position: absolute;
+	top: 60px;
+	left: 50px;
+	width: $explosionWidth; height: $explosionHeight; /* exactly the size of an image in our sprite */
+	background-image:url('images/explosion.png'); 
 	margin:20px auto;
 	z-index:4;
 	display:none;

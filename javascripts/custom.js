@@ -42,15 +42,21 @@ function reboot() {
     clearInterval(tetsuTimer);
     clearInterval(punchTimer);
     clearInterval(jumpTimer);
+    editor.setValue('');
     $ken.css('left', kenOrigPosLeft);
     $ken.css('top', kenOrigPosTop);   
     $result.css("display", "none");
     $tryAgain.css("display", "none");
+    $ken.addClass('stance');
+    $response.html('');
+    buttonOn();
+    tally = 0;
 }
 
 function noCode() {
     $ken.addClass('angry');
-    $response.html('Gimme yer code you wussy');
+    $response.html('"Gimme yer code you wussy"');
+    editor.setValue('ENTER YOUR CODE HERE');
     setTimeout(function(){
         $ken.removeClass('angry');
         $response.html('');
@@ -58,12 +64,6 @@ function noCode() {
     }, 1200);
 }
 
-function tryAgain() {
-    $tryAgain.css("display", "block");
-    setTimeout(function(){
-        $tryAgain.css("display", "none");
-    }, 800);
-}
 
 function explode() {
     $explosion.css('display', 'block');
@@ -74,34 +74,28 @@ function explode() {
     setTimeout(function() {
         $explosion.css('display', 'none');
 
+
     }, 800);
 }
 function nuke() {
     $nuclear.css('display', 'block');
+    $top.addClass('nuke-top');
+    $bottom.addClass('nuke-bottom');
     setTimeout(function(){
         editor.setValue('');
     }, 280);
 
     setTimeout(function() {
         $nuclear.css('display', 'none');
+        $top.removeClass('nuke-top');
+        $bottom.removeClass('nuke-bottom');
 
     }, 800);
 }
 
 //  ============== perfect ==============
 
-function perfect() {
-    $tryAgain.css("display", "none");
-    $ken.addClass('perfect');
-    setTimeout(function() { $ken.removeClass('perfect'); }, 600);
-    $ken.css("background-position", "-320px -1380px");
-    $result.css("display", "block");
-    setTimeout(function() {
-        $ken.addClass('stance');
-        buttonOn();
-        $result.css("display", "none");
-    }, 2000);
-}
+
 
 
 // ----------- hadoken and plasm ----------
@@ -117,19 +111,20 @@ function resetPlasma() {
     $plasma.css('left', (plasmaOrigPos + 'px'));
     clearInterval(plasmaTimer);
     buttonOn();
+    scoreCheck();
+
 }
 
 function plasmaMove() {
     var plasmaCurrentPos = parseInt($plasma.css('left'));
     $plasma.css('left', ((plasmaCurrentPos + plasmaDistance) + 'px'));
-    if (parseInt($plasma.css('left')) > 150) {
+    if (parseInt($plasma.css('left')) > 110) {
         resetPlasma();
-        tryAgain(); 
     }
 }
 
 function hadoken() {
-    $response.html("It's Bullshit!");
+    $response.html("'That's Bullshit!'");
     $ken.addClass('hadoken');
     setTimeout(function() { 
         $plasma.addClass('plasma'); 
@@ -143,7 +138,6 @@ function hadoken() {
     }, 500);
     setTimeout(function() {
         nuke();
-
     }, 1200);
 }
 
@@ -160,6 +154,8 @@ function resetTetsu() {
     $ken.css('left', (kenOrigPosLeft + 'px'));
     clearInterval(tetsuTimer);
     buttonOn();
+    scoreCheck();
+
 }
 
 function tetsuMove() {
@@ -168,7 +164,6 @@ function tetsuMove() {
     if (parseInt($ken.css('left')) > 90) {
         tetsuDistance = -40;
         nuke();
-        tryAgain(); 
     } else if (parseInt($ken.css('left')) < -250) {
         resetTetsu();
         tetsuDistance = 40
@@ -178,7 +173,7 @@ function tetsuMove() {
 
 
 function tetsu() {
-    $response.html("This code to me looks like bullshit!");
+    $response.html('"This code looks a lot like bullshit!"');
     $ken.addClass('kick');
     tetsuTimer = setInterval(function(){
         tetsuMove();
@@ -214,7 +209,7 @@ function punchMove() {
 }
 
 function dragonPunch() {
-    $response.html("Are you kidding me?");
+    $response.html('"Are you kidding me?"');
     $ken.addClass('punch');
     punchTimer = setInterval(function() {
         punchMove();
@@ -266,6 +261,7 @@ function jumpBackMove() {
     kenCurrentPosLeft = parseInt($ken.css('left'));
     kenCurrentPosTop = parseInt($ken.css('top'));
 
+
     $ken.css('left', ((kenCurrentPosLeft + jumpRight) + 'px'));
     $ken.css('top', ((kenCurrentPosTop + jumpDirection) + 'px'));
 
@@ -273,11 +269,14 @@ function jumpBackMove() {
         jumpDirection = 40
     }
     if (parseInt($ken.css('left')) < kenOrigPosLeft) {
-        reboot();
         $ken.removeClass('jump');
         clearInterval(jumpTimer); 
         jumpDirection = -40;
         jumpRight = 20;
+        $ken.css('top', kenOrigPosTop);
+        $ken.css('left', kenOrigPosLeft);
+        scoreCheck();
+
     }
 }
 
@@ -291,16 +290,54 @@ function jumpBack() {
 
 }
 
+function perfect() {
+    $ken.addClass('perfect');
+    setTimeout(function() { $ken.removeClass('perfect'); }, 600);
+    $ken.css("background-position", "-320px -1380px");
+    $result.css("display", "block");
+    $tryAgain.css("display", "block");
+}
+
+function youLose() {
+    clearInterval(plasmaTimer);
+    clearInterval(tetsuTimer);
+    clearInterval(punchTimer);
+    clearInterval(jumpTimer);
+    $ken.addClass('lost');
+    $ken.removeClass('stance');
+    $ken.removeClass('kick');
+    $ken.removeClass('hadoken');
+    $ken.removeClass('punch');
+    $response.html('You Lose');
+    youLoseSound.play();    
+
+
+    setTimeout(function() { $ken.removeClass('lost'); }, 600);
+    $ken.css("background-position", "-320px -2300px");
+    $tryAgain.css("display", "block");
+
+}
+
+function scoreCheck() {
+    if (tally == 3) {
+        youLose();
+        buttonOff();
+    } 
+}
+
 function codeCheck() {
     var random = Math.random();
     if (editor.getValue() == "") {
         noCode();
     } else if (random <= 0.25) {
         jumpForward();
+        tally += 1;
     } else if ((random > 0.25) && (random <= 0.5) ) {
         tetsu();
+        tally += 1;
     } else if ((random > 0.25) && (random <= 0.75)) {
         hadoken();
+        tally += 1;
     } else {
         var delay = 500;
         $ken.removeClass('stance');
