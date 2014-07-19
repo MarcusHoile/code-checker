@@ -1,7 +1,6 @@
 # app.rb
 require 'compass'
 require 'sinatra'
-require 'sinatra/reloader' if development?
 require 'sinatra/flash'
 require 'sass'
 
