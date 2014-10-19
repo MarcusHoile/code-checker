@@ -1,8 +1,9 @@
 # app.rb
-require 'compass'
 require 'sinatra'
 require 'sinatra/flash'
 require 'sass'
+require 'compass'
+
 
 enable :sessions
 
