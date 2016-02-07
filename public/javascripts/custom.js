@@ -34,7 +34,9 @@ function buttonPress(obj) {
     }, 200);
 }
 
-
+function resetTextCode() {
+    editor.setValue('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
+}
 
 // ========== resets and end points =======
 function reboot() {
@@ -42,7 +44,7 @@ function reboot() {
     clearInterval(tetsuTimer);
     clearInterval(punchTimer);
     clearInterval(jumpTimer);
-    editor.setValue('');
+    resetTextCode();
     $ken.css('left', kenOrigPosLeft);
     $ken.css('top', kenOrigPosTop);   
     $result.css("display", "none");
@@ -56,7 +58,7 @@ function reboot() {
 function noCode() {
     $ken.addClass('angry');
     $response.html('"Gimme yer code you wussy"');
-    editor.setValue('ENTER YOUR CODE HERE');
+    editor.setValue('ENTER YOUR CODE HERE\n\n\n\n\n\n\n\n\n\n\n\n\n');
     setTimeout(function(){
         $ken.removeClass('angry');
         $response.html('');
@@ -68,7 +70,7 @@ function noCode() {
 function explode() {
     $explosion.css('display', 'block');
     setTimeout(function(){
-        editor.setValue('');
+        resetTextCode()
     }, 250);
 
     setTimeout(function() {
@@ -82,7 +84,7 @@ function nuke() {
     $top.addClass('nuke-top');
     $bottom.addClass('nuke-bottom');
     setTimeout(function(){
-        editor.setValue('');
+        resetTextCode()
     }, 280);
 
     setTimeout(function() {
@@ -124,6 +126,7 @@ function plasmaMove() {
 }
 
 function hadoken() {
+    $('.hadoken-plasma').css('z-index', 3);
     $response.html("'That's Bullshit!'");
     $ken.addClass('hadoken');
     setTimeout(function() { 
@@ -133,11 +136,12 @@ function hadoken() {
         }, plasmaDelay);  
     }, 400);
     setTimeout(function() { 
-        $ken.removeClass('hadoken'); 
+        $ken.removeClass('hadoken');
         $response.html('');
     }, 500);
     setTimeout(function() {
         nuke();
+        $('.hadoken-plasma').css('z-index', 0);
     }, 1200);
 }
 
@@ -327,7 +331,7 @@ function scoreCheck() {
 
 function codeCheck() {
     var random = Math.random();
-    if (editor.getValue() == "") {
+    if (editor.getValue().trim() == "" || editor.getValue().trim() == "ENTER YOUR CODE HERE") {
         noCode();
     } else if (random <= 0.25) {
         jumpForward();
