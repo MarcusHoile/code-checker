@@ -24,7 +24,6 @@ PLATFORMS
 
 DEPENDENCIES
   compass
-  sass
   sinatra
   sinatra-flash
 

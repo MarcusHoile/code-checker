@@ -14,11 +14,78 @@ $font-color-2: yellow;
 $font-family: Helvetica, sans-serif;
 $button-size:100px;
 
+$spriteWidth: 160px;
+$spriteHeight: 230px;
+$explosionWidth: 240px;
+$explosionHeight: 320px;
+
+@mixin animation($params) {
+    -webkit-animation:$params;
+    -moz-animation:$params;
+    -ms-animation:$params;
+    animation:$params;
+}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} { @content }
+    @-moz-keyframes    #{$name} { @content }
+    @-ms-keyframes     #{$name} { @content }
+    @keyframes         #{$name} { @content }
+}
+
+@mixin anim($animName, $steps, $animNbr, $animParams){
+    .#{$animName} {
+        @content;
+        @include animation($animName steps($steps) $animParams);
+    }
+    @include keyframes($animName) {
+        from { background-position:0px (-$spriteHeight * ($animNbr - 1)); }
+        to { background-position:-($spriteWidth * $steps) (-$spriteHeight * ($animNbr - 1)); }
+    }
+}
+@mixin anim2($animName, $steps, $animNbr, $animParams){
+    .#{$animName} {
+        @content;
+        @include animation($animName steps($steps) $animParams);
+    }
+    @include keyframes($animName) {
+        from { background-position:0px (-$explosionHeight * ($animNbr - 1)); }
+        to { background-position:-($explosionWidth * $steps) (-$explosionHeight * ($animNbr - 1)); }
+    }
+}
+
+/* stance */
+@include anim($animName:stance, $steps:4, $animNbr:1, $animParams:.48s infinite);
+/* perfect */
+@include anim($animName:perfect, $steps:3, $animNbr:7, $animParams:.6s);
+/* punch */
+@include anim($animName:punch, $steps:5, $animNbr:4, $animParams:.9s infinite);
+/* kick */
+@include anim($animName:kick, $steps:4, $animNbr:3, $animParams:.5s infinite);
+/* hadoken */
+@include anim($animName:hadoken, $steps:4, $animNbr:2, $animParams:.5s infinite);
+// plasma
+@include anim($animName:plasma, $steps:4, $animNbr:5, $animParams:.5s infinite);
+
+@include anim($animName:jump, $steps:8, $animNbr:9, $animParams:1.5s infinite);
+
+@include anim($animName:angry, $steps:1, $animNbr:10, $animParams:1.5s infinite);
+
+@include anim($animName:lost, $steps:3, $animNbr:11, $animParams:.6s infinite);
+
+
+@include anim2($animName:explode, $steps:17, $animNbr:1, $animParams:.8s infinite);
+
+@include anim2($animName:nuke-top, $steps:15, $animNbr:2, $animParams:.8s infinite);
+
+@include anim2($animName:nuke-bottom, $steps:15, $animNbr:3, $animParams:.8s infinite);
+
 html, body {
 	margin:0;
 	padding:0;
 	height: 100%;
 }
+
 h1 {
 	padding: 20px;
 	font-family: 'Gravitas One', cursive;
@@ -26,6 +93,7 @@ h1 {
 	text-align: left;
 	color: yellow;
 }
+
 .container {
 	width: 100%;
 	min-height: 100%;
@@ -34,6 +102,7 @@ h1 {
 .col-1-1 > div {
 	display:inline-block;
 }
+
 #response {
 	font-size: 36px;
 	height: 40px;
@@ -46,6 +115,7 @@ h1 {
 	margin:0;
 	padding: 0;
 }
+
 .result-bar {
 	position: relative;
 }
@@ -90,80 +160,6 @@ h1 {
 
 
 
-@mixin animation($params) { 
-    -webkit-animation:$params;
-    -moz-animation:$params;
-    -ms-animation:$params;
-    animation:$params;
-}
-@mixin keyframes($name) { 
-    @-webkit-keyframes $name { @content }
-    @-moz-keyframes    $name { @content }
-    @-ms-keyframes     $name { @content }
-    @keyframes         $name { @content }
-}
-
-$spriteWidth:160px;
-$spriteHeight:230px;
-$explosionWidth: 240px;
-$explosionHeight: 320px;
-
-@mixin anim($animName, $steps, $animNbr, $animParams){
-    .#{$animName} { 
-        @content;
-        @include animation($animName steps($steps) $animParams); 
-    }
-    @include keyframes($animName) {
-        from { background-position:0px (-$spriteHeight * ($animNbr - 1)); }
-        to { background-position:-($spriteWidth * $steps) (-$spriteHeight * ($animNbr - 1)); }
-    }
-}
-@mixin anim2($animName, $steps, $animNbr, $animParams){
-    .#{$animName} { 
-        @content;
-        @include animation($animName steps($steps) $animParams); 
-    }
-    @include keyframes($animName) {
-        from { background-position:0px (-$explosionHeight * ($animNbr - 1)); }
-        to { background-position:-($explosionWidth * $steps) (-$explosionHeight * ($animNbr - 1)); }
-    }
-}
-
-/* stance */
-@include anim($animName:stance, $steps:4, $animNbr:1, $animParams:.48s infinite);
-/* perfect */
-@include anim($animName:perfect, $steps:3, $animNbr:7, $animParams:.6s);
-/* punch */
-@include anim($animName:punch, $steps:5, $animNbr:4, $animParams:.9s infinite);
-/* kick */
-@include anim($animName:kick, $steps:4, $animNbr:3, $animParams:.5s infinite);
-/* hadoken */
-@include anim($animName:hadoken, $steps:4, $animNbr:2, $animParams:.5s infinite);
-// plasma
-@include anim($animName:plasma, $steps:4, $animNbr:5, $animParams:.5s infinite);
-
-@include anim($animName:jump, $steps:8, $animNbr:9, $animParams:1.5s infinite);
-
-@include anim($animName:angry, $steps:1, $animNbr:10, $animParams:1.5s infinite);
-
-@include anim($animName:lost, $steps:3, $animNbr:11, $animParams:.6s infinite);
-
-
-@include anim2($animName:explode, $steps:17, $animNbr:1, $animParams:.8s infinite);
-
-@include anim2($animName:nuke-top, $steps:15, $animNbr:2, $animParams:.8s infinite);
-
-@include anim2($animName:nuke-bottom, $steps:15, $animNbr:3, $animParams:.8s infinite);
-
-
-
-
-
-
-
-
-
-
 body {
 	background: $bg-color-1;
 	margin:0 auto;
@@ -173,20 +169,18 @@ body {
 
 
 #left {
-	width:25%;
-	display:inline-block;
+	width: 25%;
 	margin-top: 40px;
-	margin-left:5%;
-	padding:0;
-	float:left;
+	margin-left: 5%;
+	padding: 0;
+	float: left;
 }
 
 #right {
-	width:55%;
-	display:inline-block;
+	width: 55%;
 	margin-right: 15%;
-	padding:0;
-	float:right;
+	padding: 0;
+	float: right;
 }
 
 .point {
@@ -204,8 +198,6 @@ p {
 	font-size: 24px;
 }
 
-
-
 #button-edge {
 	margin: 0 auto;
 	height: $button-size;
@@ -222,6 +214,7 @@ p {
 	padding-right:0;
 	width: 60%;
 }
+
 .CodeMirror {
 	z-index:1;
 	width: 100%;
@@ -238,7 +231,6 @@ p {
 // 	margin: 0 0 0 40px;
 // 	z-index: -1;
 // 	// margin-left: 0px;
-	
 // }
 
 #shadow {
@@ -249,7 +241,7 @@ p {
 	width:(100px * 0.865);
 	border-radius:100px;
 	top:100px * 0.02;
-}	
+}
 
 #button {
 	position:absolute;
@@ -282,6 +274,7 @@ p {
 	border-bottom-right-radius: $button-size;
 	background: -webkit-linear-gradient(top,rgba(255,0,0,0) 60%, rgba(100,2,2,0.4));
 }
+
 #try-again {
 	position: relative;
 	margin: 0 auto;
@@ -298,12 +291,13 @@ p {
 		background: darken($bg-color-2, 10%);
 	}
 }
-.ken { 
+
+.ken {
 	position: absolute;
 	top: 0px;
 	left: -250px;
 	width: $spriteWidth; height: $spriteHeight; /* exactly the size of an image in our sprite */
-	background-image:url('/images/Ken-sprite.png'); 
+	background-image:url('/images/Ken-sprite.png');
 	background-position: 0px -80px;
 	margin:20px auto;
 	z-index:9;
@@ -314,7 +308,7 @@ p {
 	}
 }
 
-.base { 
+.base {
 	position: absolute;
 	top: 230px;
 	left: -250px;
@@ -323,7 +317,8 @@ p {
 	width: 250px;
 	margin:20px auto;
 }
-.platform { 
+
+.platform {
 	position: absolute;
 	border-bottom: 40px solid #704026;
 	border-left: 100px solid transparent;
@@ -337,12 +332,13 @@ p {
 .vs {
 	position: absolute;
 }
-.explosion { 
+
+.explosion {
 	position: absolute;
 	top: -220px;
 	left: 5px;
 	width: $explosionWidth; height: $explosionHeight; /* exactly the size of an image in our sprite */
-	background-image:url('/images/explosion.png'); 
+	background-image:url('/images/explosion.png');
 	// background-position: 0px -80px;
 	margin:20px auto;
 	z-index:4;
@@ -353,12 +349,13 @@ p {
 		margin: 20px;
 	}
 }
-.top { 
+
+.top {
 	position: absolute;
 	top: -170px;
 	left: 50px;
 	width: $explosionWidth; height: $explosionHeight; /* exactly the size of an image in our sprite */
-	background-image:url('/images/explosion.png'); 
+	background-image:url('/images/explosion.png');
 	// background-position: 0px -80px;
 	margin:20px auto;
 	z-index:4;
@@ -369,12 +366,13 @@ p {
 		margin: 20px;
 	}
 }
-.bottom { 
+
+.bottom {
 	position: absolute;
 	top: 60px;
 	left: 50px;
 	width: $explosionWidth; height: $explosionHeight; /* exactly the size of an image in our sprite */
-	background-image:url('/images/explosion.png'); 
+	background-image:url('/images/explosion.png');
 	margin:20px auto;
 	z-index:4;
 	display:none;
@@ -384,6 +382,7 @@ p {
 		margin: 20px;
 	}
 }
+
 #wrapper {
 	position:relative;
 	display:inline-block;
@@ -395,7 +394,7 @@ p {
 	top: 13px;
 	left: -125px;
 	width: $spriteWidth; height: $spriteHeight; /* exactly the size of an image in our sprite */
-	background-image:url('/images/Ken-sprite.png'); 
+	background-image:url('/images/Ken-sprite.png');
 	background-position: -920px -160px;
 	z-index:3;
 	img {

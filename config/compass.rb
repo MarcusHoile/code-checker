@@ -11,7 +11,7 @@ http_javascripts_path = '/javascripts'
 
 # File system locations
 css_dir               = File.join 'public', 'stylesheets'
-sass_dir              = File.join 'stylesheets'
+sass_dir              = File.join 'sass'
 images_dir            = File.join 'public', 'images'
 javascripts_dir       = File.join 'public', 'javascripts'
 
@@ -26,5 +26,3 @@ line_comments         = false
 
 # CSS output style - :nested, :expanded, :compact, or :compressed
 output_style          = :expanded
-
-# Learn more: http://beta.compass-style.org/help/tutorials/configuration-reference/
