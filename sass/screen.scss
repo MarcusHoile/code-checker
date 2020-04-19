@@ -86,6 +86,13 @@ html, body {
 	height: 100%;
 }
 
+body {
+	background: $bg-color-1;
+	margin:0 auto;
+	text-align:center;
+	font-family: $font-family;
+}
+
 h1 {
 	padding: 20px;
 	font-family: 'Gravitas One', cursive;
@@ -104,11 +111,9 @@ h1 {
 }
 
 #response {
-	font-size: 36px;
-	height: 40px;
+	font-size: 64px;
 	color: $font-color-2;
 }
-
 
 #header {
 	background: #fff;
@@ -116,21 +121,16 @@ h1 {
 	padding: 0;
 }
 
-.result-bar {
-	position: relative;
-}
-
 #result-container {
-	position: absolute;
-	padding:10px;
-	margin-bottom: 40px;
-	left: 400px;
-	top: 0px;
-	z-index:9;
+	padding-top: 50px;
+	text-transform: uppercase;
+	font-weight: bold;
+
 	#result {
 		margin: 0 auto;
 		display:none;
 	}
+
 	#try-again {
 		display:none;
 		color: yellow;
@@ -142,6 +142,7 @@ h1 {
 	height:40px;
 	position:absolute;
 }
+
 .input-container {
 	height: 410px;
 	max-width: 960px;
@@ -154,19 +155,6 @@ h1 {
 	margin-top: 20px;
 	display: inline-block;
 }
-
-
-
-
-
-
-body {
-	background: $bg-color-1;
-	margin:0 auto;
-	text-align:center;
-	font-family: $font-family;
-}
-
 
 #left {
 	width: 25%;

@@ -1,13 +1,13 @@
-function startGame(){
+function startGame() {
     buttonPress($bigButton);
-    buttonOff();   
-    setTimeout(function() {
-        codeCheck(); 
+    buttonOff();
+    setTimeout(function () {
+        codeCheck();
     }, 200);
 }
 
 function buttonOn() {
-    $bigButton.on('click', function() {
+    $bigButton.on('click', function () {
         startGame();
         $response.html('');
     });
@@ -22,11 +22,11 @@ function buttonPress(obj) {
     var origWidth = obj.css('width');
     var origMarginLeft = obj.css('left');
     var origMarginTop = obj.css('marginTop');
-    obj.css('height','78px');
+    obj.css('height', '78px');
     obj.css('width', '75px');
     obj.css('marginTop', '4px');
     obj.css('left', "2px");
-    setTimeout(function(){
+    setTimeout(function () {
         obj.css('height', origHeight);
         obj.css('width', origWidth);
         obj.css('marginTop', origMarginTop);
@@ -46,34 +46,35 @@ function reboot() {
     clearInterval(jumpTimer);
     resetTextCode();
     $ken.css('left', kenOrigPosLeft);
-    $ken.css('top', kenOrigPosTop);   
+    $ken.css('top', kenOrigPosTop);
     $result.css("display", "none");
     $tryAgain.css("display", "none");
     $ken.addClass('stance');
     $response.html('');
     buttonOn();
     tally = 0;
+    announceRound(0, 200)
 }
 
 function noCode() {
     $ken.addClass('angry');
     $response.html('"Gimme yer code you wussy"');
-    editor.setValue('ENTER YOUR CODE HERE\n\n\n\n\n\n\n\n\n\n\n\n\n');
-    setTimeout(function(){
+    editor.setValue('ENTER YOUR CODE HERE\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
+    setTimeout(function () {
         $ken.removeClass('angry');
         $response.html('');
-        buttonOn();           
+        buttonOn();
     }, 1200);
 }
 
 
 function explode() {
     $explosion.css('display', 'block');
-    setTimeout(function(){
+    setTimeout(function () {
         resetTextCode()
     }, 250);
 
-    setTimeout(function() {
+    setTimeout(function () {
         $explosion.css('display', 'none');
 
 
@@ -83,11 +84,11 @@ function nuke() {
     $nuclear.css('display', 'block');
     $top.addClass('nuke-top');
     $bottom.addClass('nuke-bottom');
-    setTimeout(function(){
+    setTimeout(function () {
         resetTextCode()
     }, 280);
 
-    setTimeout(function() {
+    setTimeout(function () {
         $nuclear.css('display', 'none');
         $top.removeClass('nuke-top');
         $bottom.removeClass('nuke-bottom');
@@ -129,17 +130,17 @@ function hadoken() {
     $('.hadoken-plasma').css('z-index', 3);
     $response.html("'That's Bullshit!'");
     $ken.addClass('hadoken');
-    setTimeout(function() { 
-        $plasma.addClass('plasma'); 
-        plasmaTimer = setInterval(function(){
+    setTimeout(function () {
+        $plasma.addClass('plasma');
+        plasmaTimer = setInterval(function () {
             plasmaMove();
-        }, plasmaDelay);  
+        }, plasmaDelay);
     }, 400);
-    setTimeout(function() { 
+    setTimeout(function () {
         $ken.removeClass('hadoken');
         $response.html('');
     }, 500);
-    setTimeout(function() {
+    setTimeout(function () {
         nuke();
         $('.hadoken-plasma').css('z-index', 0);
     }, 1200);
@@ -179,7 +180,7 @@ function tetsuMove() {
 function tetsu() {
     $response.html('"This code looks a lot like bullshit!"');
     $ken.addClass('kick');
-    tetsuTimer = setInterval(function(){
+    tetsuTimer = setInterval(function () {
         tetsuMove();
     }, tetsuDelay);
 }
@@ -195,7 +196,7 @@ var punchDistance = -40;
 function resetPunch() {
     punchDistance = -40;
     $ken.removeClass('punch');
-    clearInterval(punchTimer);   
+    clearInterval(punchTimer);
     buttonOn();
     $response.html('');
 }
@@ -215,10 +216,10 @@ function punchMove() {
 function dragonPunch() {
     $response.html('"Are you kidding me?"');
     $ken.addClass('punch');
-    punchTimer = setInterval(function() {
+    punchTimer = setInterval(function () {
         punchMove();
     }, punchDelay)
-    setTimeout(function(){
+    setTimeout(function () {
         explode();
 
     }, 140);
@@ -247,7 +248,7 @@ function jumpForwardMove() {
     }
     if (parseInt($ken.css('top')) > 140) {
         $ken.removeClass('jump');
-        clearInterval(jumpTimer); 
+        clearInterval(jumpTimer);
         dragonPunch();
     }
 }
@@ -255,7 +256,7 @@ function jumpForwardMove() {
 function jumpForward() {
     $tryAgain.css("display", "none");
     $ken.addClass('jump');
-    jumpTimer = setInterval(function() {
+    jumpTimer = setInterval(function () {
         jumpForwardMove();
     }, jumpDelay)
 }
@@ -274,7 +275,7 @@ function jumpBackMove() {
     }
     if (parseInt($ken.css('left')) < kenOrigPosLeft) {
         $ken.removeClass('jump');
-        clearInterval(jumpTimer); 
+        clearInterval(jumpTimer);
         jumpDirection = -40;
         jumpRight = 20;
         $ken.css('top', kenOrigPosTop);
@@ -288,7 +289,7 @@ function jumpBack() {
     jumpRight = -20;
     jumpDirection = -40;
     $ken.addClass('jump');
-    jumpTimer = setInterval(function() {
+    jumpTimer = setInterval(function () {
         jumpBackMove();
     }, jumpDelay)
 
@@ -296,7 +297,7 @@ function jumpBack() {
 
 function perfect() {
     $ken.addClass('perfect');
-    setTimeout(function() { $ken.removeClass('perfect'); }, 600);
+    setTimeout(function () { $ken.removeClass('perfect'); }, 600);
     $ken.css("background-position", "-320px -1380px");
     $result.css("display", "block");
     $tryAgain.css("display", "block");
@@ -313,10 +314,13 @@ function youLose() {
     $ken.removeClass('hadoken');
     $ken.removeClass('punch');
     $response.html('You Lose');
-    youLoseSound.play();    
+    youLoseSound.play();
+    setTimeout(function () {
+        laughSound.play();
+    }, 1500);
 
 
-    setTimeout(function() { $ken.removeClass('lost'); }, 600);
+    setTimeout(function () { $ken.removeClass('lost'); }, 600);
     $ken.css("background-position", "-320px -2300px");
     $tryAgain.css("display", "block");
 
@@ -326,28 +330,70 @@ function scoreCheck() {
     if (tally == 3) {
         youLose();
         buttonOff();
-    } 
+    }
+}
+
+function announceRound(round, delay) {
+    setTimeout(function () {
+        if (round == 2) {
+            finalSound.play();
+        } else if (round < 2) {
+            roundSound.play();
+        }
+    }, delay);
+    setTimeout(function () {
+        if (round === 0) {
+            oneSound.play();
+        } else if (round === 1) {
+            twoSound.play();
+        }
+    }, delay + 900);
+    setTimeout(function () {
+        if (round < 2) {
+            fightSound.play();
+        }
+    }, delay + 1700);
+
 }
 
 function codeCheck() {
     var random = Math.random();
-    if (editor.getValue().trim() == "" || editor.getValue().trim() == "ENTER YOUR CODE HERE") {
+    if (editor.getValue().trim() == "") {
         noCode();
+        hurtSound.play();
     } else if (random <= 0.25) {
         jumpForward();
+        setTimeout(function () {
+            punchSound.play();
+        }, 710);
         tally += 1;
-    } else if ((random > 0.25) && (random <= 0.5) ) {
+        announceRound(tally, 3000)
+    } else if ((random > 0.25) && (random <= 0.5)) {
         tetsu();
+        kickSound.play();
+        setTimeout(function () {
+            explosionSound.play();
+        }, 800);
         tally += 1;
+        announceRound(tally, 2000)
     } else if ((random > 0.25) && (random <= 0.75)) {
         hadoken();
+        hadokenSound.play();
+        setTimeout(function () {
+            explosionSound.play();
+        }, 1200);
         tally += 1;
+        announceRound(tally, 2500)
     } else {
-        var delay = 500;
         $ken.removeClass('stance');
-        setTimeout(function(){
-            audioElement.play();    
-        }, delay);
+        setTimeout(function () {
+            youWinSound.play();
+        }, 500);
+        setTimeout(function () {
+            if (tally === 0) {
+                perfectSound.play();
+            }
+        }, 1200);
         perfect();
     }
 }

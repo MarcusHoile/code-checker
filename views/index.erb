@@ -2,15 +2,12 @@
 <html lang="en">
 <head>
 	<title>Code Checker</title>
-	<link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="stylesheets/simplegrid.css" rel="stylesheet" type="text/css">
 	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
 	<link href="stylesheets/codemirror.css" media="screen" rel="stylesheet" type="text/css" />
 	<link href="stylesheets/theme/the-matrix.css" media="screen" rel="stylesheet" type="text/css" />
 	<link href='http://fonts.googleapis.com/css?family=Gravitas+One' rel='stylesheet' type='text/css'>
 	<script src="javascripts/codemirror.js"></script>
-
 	<script src="mode/javascript/javascript.js"></script>
 	<script src="mode/ruby/ruby.js"></script>
 	<script type="text/javascript" src="javascripts/jquery.js"></script>
@@ -21,13 +18,9 @@
 </head>
 <body>
 	<div class="container">
-		<div class="col-1-1 result-bar">
+
 		<h1>Code Checker</h1>
-			<div id="result-container">
-				<img src="images/perfect1.gif" alt="" id="result">
-				<div id="response">Are you kidding me?</div>
-			</div>
-		</div>
+
 		<div class="col-1-1 input-container">
 			<div class="input-window" id="wrapper">
 				<div class="ken"></div>
@@ -56,13 +49,31 @@
 			</div>
 		</div> <!-- controls container -->
 
+		<div id="result-container">
+			<img src="images/perfect1.gif" alt="" id="result">
+			<div id="response"></div>
+		</div>
 	</div>
 
 	<script>
 
 	var $ken;
-	var audioElement = document.createElement('audio');
+	var perfectSound = document.createElement('audio');
 	var youLoseSound = document.createElement('audio');
+	var hurtSound = document.createElement('audio');
+	var punchSound = document.createElement('audio');
+	var kickSound = document.createElement('audio');
+	var hadokenSound = document.createElement('audio');
+
+	var explosionSound = document.createElement('audio');
+	var roundSound = document.createElement('audio');
+	var oneSound = document.createElement('audio');
+	var twoSound = document.createElement('audio');
+	var finalSound = document.createElement('audio');
+	var laughSound = document.createElement('audio');
+	var youWinSound = document.createElement('audio');
+	var fightSound = document.createElement('audio');
+
 	var $result;
 	var $code;
 	var $response;
@@ -108,8 +119,21 @@
 		});
 
 		$ken.addClass('stance');
-		audioElement.setAttribute('src', 'assets/perfect.mp3');
+		perfectSound.setAttribute('src', 'assets/perfect.mp3');
+		hadokenSound.setAttribute('src', 'assets/hadouken.mp3');
+		kickSound.setAttribute('src', 'assets/ryuken-kick.mp3');
+		punchSound.setAttribute('src', 'assets/ryuken-shoryuken.mp3');
+		hurtSound.setAttribute('src', 'assets/ryuken-uggh.mp3');
 		youLoseSound.setAttribute('src', 'assets/you-lose.mp3');
+
+		explosionSound.setAttribute('src', 'assets/depth-charge.mp3')
+		roundSound.setAttribute('src', 'assets/round.mp3')
+		oneSound.setAttribute('src', 'assets/1.mp3')
+		twoSound.setAttribute('src', 'assets/2.mp3')
+		finalSound.setAttribute('src', 'assets/final.mp3')
+		laughSound.setAttribute('src', 'assets/chun-li-laugh.mp3')
+		youWinSound.setAttribute('src', 'assets/you-win.mp3')
+		fightSound.setAttribute('src', 'assets/fight.mp3')
 
 
 		buttonOn();

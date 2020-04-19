@@ -537,6 +537,13 @@ html, body {
   height: 100%;
 }
 
+body {
+  background: #0C0F66;
+  margin: 0 auto;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+}
+
 h1 {
   padding: 20px;
   font-family: 'Gravitas One', cursive;
@@ -555,8 +562,7 @@ h1 {
 }
 
 #response {
-  font-size: 36px;
-  height: 40px;
+  font-size: 64px;
   color: yellow;
 }
 
@@ -566,17 +572,10 @@ h1 {
   padding: 0;
 }
 
-.result-bar {
-  position: relative;
-}
-
 #result-container {
-  position: absolute;
-  padding: 10px;
-  margin-bottom: 40px;
-  left: 400px;
-  top: 0px;
-  z-index: 9;
+  padding-top: 50px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 #result-container #result {
   margin: 0 auto;
@@ -603,13 +602,6 @@ h1 {
   width: 35%;
   margin-top: 20px;
   display: inline-block;
-}
-
-body {
-  background: #0C0F66;
-  margin: 0 auto;
-  text-align: center;
-  font-family: Helvetica, sans-serif;
 }
 
 #left {
