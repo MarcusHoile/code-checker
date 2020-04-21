@@ -93,35 +93,37 @@ body {
 	font-family: $font-family;
 }
 
+.container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 100px 1fr 200px auto;
+}
+
 h1 {
 	padding: 20px;
 	font-family: 'Gravitas One', cursive;
 	font-size: 28px;
 	text-align: left;
 	color: yellow;
+	grid-column: 1 / 4;
 }
 
-.container {
-	width: 100%;
-	min-height: 100%;
+.game-screen {
+	grid-column: 1 / 4;
+	grid-row-start: 2;
+	height: 410px;
+	padding: 20px 20% 0 20%;
 }
 
-.col-1-1 > div {
-	display:inline-block;
-}
-
-#response {
-	font-size: 64px;
-	color: $font-color-2;
-}
-
-#header {
-	background: #fff;
-	margin:0;
-	padding: 0;
+.controls-container {
+	padding-top: 20px;
+	grid-row-start: 3;
+	grid-column-start: 2;
 }
 
 #result-container {
+	grid-row-start: 4;
+	grid-column: 1 / 4;
 	padding-top: 50px;
 	text-transform: uppercase;
 	font-weight: bold;
@@ -138,22 +140,21 @@ h1 {
 	}
 }
 
+#response {
+	font-size: 64px;
+	color: $font-color-2;
+}
+
+#header {
+	background: #fff;
+	margin:0;
+	padding: 0;
+}
+
+
 #try-again {
 	height:40px;
 	position:absolute;
-}
-
-.input-container {
-	height: 410px;
-	max-width: 960px;
-	margin: 20px 20% 0 20%;
-
-}
-
-.controls-container {
-	width:35%;
-	margin-top: 20px;
-	display: inline-block;
 }
 
 #left {
