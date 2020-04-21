@@ -393,7 +393,7 @@ function codeCheck() {
             if (tally === 0) {
                 perfectSound.play();
             }
-        }, 1200);
+        }, 1800);
         perfect();
     }
 }
