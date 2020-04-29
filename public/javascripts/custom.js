@@ -50,7 +50,6 @@ function reboot() {
     $ken.css('left', kenOrigPosLeft);
     $ken.css('top', kenOrigPosTop);
     $result.css("display", "none");
-    $tryAgain.css("display", "none");
     $ken.addClass('stance');
     $response.html('');
     buttonOn();
@@ -254,7 +253,6 @@ function jumpForwardMove() {
 }
 
 function jumpForward() {
-    $tryAgain.css("display", "none");
     $ken.addClass('jump');
     jumpTimer = setInterval(function () {
         jumpForwardMove();
@@ -300,7 +298,6 @@ function perfect() {
     setTimeout(function () { $ken.removeClass('perfect'); }, 600);
     $ken.css("background-position", "-320px -1380px");
     $result.css("display", "block");
-    $tryAgain.css("display", "block");
 }
 
 function youLose() {
@@ -322,8 +319,6 @@ function youLose() {
 
     setTimeout(function () { $ken.removeClass('lost'); }, 600);
     $ken.css("background-position", "-320px -2300px");
-    $tryAgain.css("display", "block");
-
 }
 
 function scoreCheck() {
@@ -387,6 +382,7 @@ function codeCheck() {
         tally += 1;
         announceRound(tally, 2500)
     } else {
+        document.getElementById('full-screen-overlay').classList.remove('hidden')
         $ken.removeClass('stance');
         setTimeout(function () {
             youWinSound.play();

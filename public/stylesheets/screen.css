@@ -542,12 +542,26 @@ body {
   margin: 0 auto;
   text-align: center;
   font-family: Helvetica, sans-serif;
+  position: relative;
+}
+
+#full-screen-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  z-index: 200;
+}
+
+.hidden {
+  display: none;
 }
 
 .container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 100px 1fr 50px 200px auto;
+  border: solid 20px gold;
+  border-bottom-width: 30px;
 }
 
 h1 {
@@ -559,11 +573,12 @@ h1 {
 }
 
 .game-screen {
-  grid-row-start: 2;
-  height: 410px;
+  height: 400px;
   display: flex;
   width: 100%;
   position: relative;
+  margin-bottom: -10px;
+  background: gray;
 }
 
 .fighter {
@@ -573,14 +588,17 @@ h1 {
 
 .controls-container {
   padding-top: 20px;
-  grid-row-start: 4;
+  grid-row-start: 3;
 }
 
 #result-container {
-  grid-row-start: 5;
+  position: absolute;
+  left: 0;
+  right: 0;
   padding-top: 50px;
   text-transform: uppercase;
   font-weight: bold;
+  z-index: 200;
 }
 #result-container #result {
   margin: 0 auto;

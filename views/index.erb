@@ -17,11 +17,15 @@
 	<title>Document</title>
 </head>
 <body>
+	<div id="full-screen-overlay" class="hidden">
+	</div>
 	<div class="container">
 
-		<h1>Code Checker</h1>
-
 		<div class="game-screen">
+			<div id="result-container">
+				<img src="images/perfect1.gif" alt="" id="result">
+				<div id="response"></div>
+			</div>
 			<div class="fighter">
 				<div class="ken"></div>
 				<div class="base"></div>
@@ -33,9 +37,10 @@
 			</div>
 			<div class="input-window" id="wrapper">
 				<textarea name="code" id="code"></textarea>
-				<div id="try-again">Try Again?</div>
 			</div>
 		</div>
+
+	</div>
 
 		<div class="controls-container">
 			<div id="button-container">
@@ -49,12 +54,6 @@
 				</div>
 			</div>
 		</div> <!-- controls container -->
-
-		<div id="result-container">
-			<img src="images/perfect1.gif" alt="" id="result">
-			<div id="response"></div>
-		</div>
-	</div>
 
 	<script>
 
