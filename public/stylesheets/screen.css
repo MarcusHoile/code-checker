@@ -539,10 +539,30 @@ html, body {
 
 body {
   background: #020228;
-  margin: 0 auto;
-  text-align: center;
-  font-family: Helvetica, sans-serif;
+  font-size: 18px;
   position: relative;
+  text-align: center;
+}
+
+#start-screen-overlay {
+  text-transform: uppercase;
+  font-family: "Press Start 2P", monospace;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+#start-screen-overlay:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background: repeating-linear-gradient(#0D122B, #0D122B 2px, #565B73 2px, #565B73 4px);
+  opacity: 0.2;
+  z-index: 100;
+  content: "";
+  pointer-events: none;
 }
 
 #start-screen-overlay {
@@ -569,14 +589,6 @@ body {
 .container {
   display: grid;
   grid-template-columns: 1fr;
-}
-
-h1 {
-  padding: 20px;
-  font-family: 'Gravitas One', cursive;
-  font-size: 28px;
-  text-align: left;
-  color: yellow;
 }
 
 .game-screen {
@@ -864,4 +876,137 @@ p {
   height: 160px;
   width: 160px;
   margin: 20px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.splash-screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.title {
+  margin: auto;
+  font-family: "Permanent Marker", monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 40vh;
+  font-size: 6rem;
+  line-height: 0.75;
+  word-break: break-word;
+  max-width: 500px;
+  padding-bottom: 10vh;
+}
+
+.title h1 {
+  background: -webkit-linear-gradient(#ff1212 30%, #ffd726);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-top {
+  transform: skew(-10deg) rotate(-10deg) translateX(-2rem);
+}
+
+.title-bottom {
+  transform: skew(-10deg) rotate(-10deg) translateX(1rem);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 20vh;
+  margin: auto;
+  padding-bottom: 3vh;
+}
+
+.start-screen-bottom {
+  display: flex;
+  flex-direction: column;
+  height: 10vh;
+}
+
+.credit {
+  margin-top: 10px;
+  pointer-events: none;
+}
+
+.grey-with-red {
+  color: silver;
+  text-shadow: 2px 2px 0 #c00b0b;
+}
+
+.purple-with-blue {
+  color: #939aff;
+  text-shadow: 2px 2px 0 #2f3dff;
+}
+
+.yellow-with-darkyellow {
+  color: #e2b318;
+  text-shadow: 0 2px 0 #6b4d0b, 2px 0 0 #976d13, 2px 2px 0 #976d13;
+}
+
+.yellow {
+  color: #e2b318;
+}
+
+.big {
+  font-size: 6rem;
+}
+
+@media (min-width: 400px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  .big {
+    font-size: 7rem;
+  }
+}
+@media (min-width: 600px) {
+  .big {
+    font-size: 9rem;
+  }
+
+  .title {
+    font-size: 6rem;
+    height: 50vh;
+  }
+
+  .title-top {
+    transform: skew(-10deg) rotate(-10deg) translateX(-2rem);
+  }
+
+  .title-bottom {
+    transform: skew(-10deg) rotate(-10deg) translateX(3rem);
+  }
+}
+@media (min-width: 800px) {
+  .credit {
+    position: absolute;
+    right: 50px;
+    margin-top: 0;
+  }
+}
+/* Stole this idea from twilioquest, it's freaking sick. */
+.load {
+  animation: load 800ms 500ms backwards;
+}
+
+@keyframes load {
+  0% {
+    filter: blur(2px) hue-rotate(-150deg);
+  }
+}
+::selection {
+  background: #b4fdff;
+}
+
+::-moz-selection {
+  background: #b4fdff;
 }

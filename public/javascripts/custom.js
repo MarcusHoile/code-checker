@@ -52,9 +52,7 @@ function reboot() {
     $result.css("display", "none");
     $ken.addClass('stance');
     $response.html('');
-    buttonOn();
     tally = 0;
-    announceRound(0, 200)
 }
 
 function noCode() {
@@ -355,8 +353,10 @@ function announceRound(round, delay) {
 function completeFightScreen() {
     document.getElementById('end-screen-overlay').classList.remove('hidden')
     document.getElementById('end-screen-overlay').addEventListener('click', function (el) {
+        reboot()
         el.target.classList.add('hidden')
         $result.css("display", "none");
+        $response.html('');
         document.getElementById('start-screen-overlay').classList.remove('hidden')
     })
 }
