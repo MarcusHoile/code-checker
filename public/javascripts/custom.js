@@ -312,6 +312,7 @@ function youLose() {
     $ken.removeClass('punch');
     $response.html('You Lose');
     youLoseSound.play();
+    completeFightScreen();
     setTimeout(function () {
         laughSound.play();
     }, 1500);
@@ -351,6 +352,15 @@ function announceRound(round, delay) {
 
 }
 
+function completeFightScreen() {
+    document.getElementById('end-screen-overlay').classList.remove('hidden')
+    document.getElementById('end-screen-overlay').addEventListener('click', function (el) {
+        el.target.classList.add('hidden')
+        $result.css("display", "none");
+        document.getElementById('start-screen-overlay').classList.remove('hidden')
+    })
+}
+
 function codeCheck() {
     var random = Math.random();
     var codeInput = editor.getValue().trim()
@@ -382,7 +392,7 @@ function codeCheck() {
         tally += 1;
         announceRound(tally, 2500)
     } else {
-        document.getElementById('full-screen-overlay').classList.remove('hidden')
+        completeFightScreen()
         $ken.removeClass('stance');
         setTimeout(function () {
             youWinSound.play();

@@ -94,7 +94,16 @@ body {
 	position: relative;
 }
 
-#full-screen-overlay {
+#start-screen-overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100vw;
+	z-index: 200;
+	background: black;
+}
+
+#end-screen-overlay {
 	position: absolute;
 	top: 0;
 	bottom: 0;
