@@ -1,3 +1,5 @@
+var instructions = '// ENTER YOUR CODE BELOW'
+
 function startGame() {
     buttonPress($bigButton);
     buttonOff();
@@ -58,8 +60,8 @@ function reboot() {
 
 function noCode() {
     $ken.addClass('angry');
-    $response.html('"Gimme yer code you wussy"');
-    editor.setValue('ENTER YOUR CODE HERE\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
+    $response.html('"SHOW ME YOUR CODE!"');
+    editor.setValue(instructions + '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
     setTimeout(function () {
         $ken.removeClass('angry');
         $response.html('');
@@ -106,7 +108,7 @@ function nuke() {
 var plasmaDelay = 200;
 var plasmaDistance = 40;
 var plasmaTimer = null;
-var plasmaOrigPos = -50;
+var plasmaOrigPos = 150;
 
 
 function resetPlasma() {
@@ -121,13 +123,12 @@ function resetPlasma() {
 function plasmaMove() {
     var plasmaCurrentPos = parseInt($plasma.css('left'));
     $plasma.css('left', ((plasmaCurrentPos + plasmaDistance) + 'px'));
-    if (parseInt($plasma.css('left')) > 110) {
+    if (parseInt($plasma.css('left')) > 360) {
         resetPlasma();
     }
 }
 
 function hadoken() {
-    $('.hadoken-plasma').css('z-index', 3);
     $response.html("'That's Bullshit!'");
     $ken.addClass('hadoken');
     setTimeout(function () {
@@ -142,7 +143,6 @@ function hadoken() {
     }, 500);
     setTimeout(function () {
         nuke();
-        $('.hadoken-plasma').css('z-index', 0);
     }, 1200);
 }
 
@@ -166,10 +166,10 @@ function resetTetsu() {
 function tetsuMove() {
     kenCurrentPosLeft = parseInt($ken.css('left'));
     $ken.css('left', ((kenCurrentPosLeft + tetsuDistance) + 'px'));
-    if (parseInt($ken.css('left')) > 90) {
+    if (parseInt($ken.css('left')) > 340) {
         tetsuDistance = -40;
         nuke();
-    } else if (parseInt($ken.css('left')) < -250) {
+    } else if (parseInt($ken.css('left')) < 0) {
         resetTetsu();
         tetsuDistance = 40
     }
@@ -358,7 +358,9 @@ function announceRound(round, delay) {
 
 function codeCheck() {
     var random = Math.random();
-    if (editor.getValue().trim() == "") {
+    var codeInput = editor.getValue().trim()
+
+    if (codeInput == "" || codeInput == instructions) {
         noCode();
         hurtSound.play();
     } else if (random <= 0.25) {

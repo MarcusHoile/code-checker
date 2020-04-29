@@ -546,8 +546,8 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 100px 1fr 200px auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 1fr 50px 200px auto;
 }
 
 h1 {
@@ -556,25 +556,28 @@ h1 {
   font-size: 28px;
   text-align: left;
   color: yellow;
-  grid-column: 1 / 4;
 }
 
 .game-screen {
-  grid-column: 1 / 4;
   grid-row-start: 2;
   height: 410px;
-  padding: 20px 20% 0 20%;
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.fighter {
+  width: 250px;
+  position: relative;
 }
 
 .controls-container {
   padding-top: 20px;
-  grid-row-start: 3;
-  grid-column-start: 2;
+  grid-row-start: 4;
 }
 
 #result-container {
-  grid-row-start: 4;
-  grid-column: 1 / 4;
+  grid-row-start: 5;
   padding-top: 50px;
   text-transform: uppercase;
   font-weight: bold;
@@ -649,11 +652,10 @@ p {
 
 .input-window {
   padding-right: 0;
-  width: 60%;
+  flex-grow: 1;
 }
 
 .CodeMirror {
-  z-index: 1;
   width: 100%;
   height: 400px !important;
 }
@@ -712,7 +714,6 @@ p {
   width: 100px;
   top: -200px;
   display: none;
-  z-index: 9;
   background: #79CC31;
   color: #fff;
 }
@@ -724,14 +725,13 @@ p {
 .ken {
   position: absolute;
   top: 0px;
-  left: -250px;
   width: 160px;
   height: 230px;
   /* exactly the size of an image in our sprite */
   background-image: url("/images/Ken-sprite.png");
   background-position: 0px -80px;
   margin: 20px auto;
-  z-index: 9;
+  z-index: 100;
 }
 .ken img {
   height: 160px;
@@ -742,7 +742,6 @@ p {
 .base {
   position: absolute;
   top: 230px;
-  left: -250px;
   background: #1A1309;
   height: 150px;
   width: 250px;
@@ -754,7 +753,6 @@ p {
   border-bottom: 40px solid #704026;
   border-left: 100px solid transparent;
   top: 190px;
-  left: -250px;
   height: 0;
   width: 350px;
   margin: 20px auto;
@@ -767,14 +765,14 @@ p {
 .explosion {
   position: absolute;
   top: -220px;
-  left: 5px;
+  left: 255px;
   width: 240px;
   height: 320px;
   /* exactly the size of an image in our sprite */
   background-image: url("/images/explosion.png");
   margin: 20px auto;
-  z-index: 4;
   display: none;
+  z-index: 99;
 }
 .explosion img {
   height: 160px;
@@ -785,14 +783,14 @@ p {
 .top {
   position: absolute;
   top: -170px;
-  left: 50px;
+  left: 300px;
   width: 240px;
   height: 320px;
   /* exactly the size of an image in our sprite */
   background-image: url("/images/explosion.png");
   margin: 20px auto;
-  z-index: 4;
   display: none;
+  z-index: 99;
 }
 .top img {
   height: 160px;
@@ -803,14 +801,14 @@ p {
 .bottom {
   position: absolute;
   top: 60px;
-  left: 50px;
+  left: 300px;
   width: 240px;
   height: 320px;
   /* exactly the size of an image in our sprite */
   background-image: url("/images/explosion.png");
   margin: 20px auto;
-  z-index: 4;
   display: none;
+  z-index: 99;
 }
 .bottom img {
   height: 160px;
@@ -826,13 +824,13 @@ p {
 .hadoken-plasma {
   position: absolute;
   top: 13px;
-  left: -125px;
+  left: 125px;
   width: 160px;
   height: 230px;
   /* exactly the size of an image in our sprite */
   background-image: url("/images/Ken-sprite.png");
   background-position: -920px -160px;
-  z-index: 3;
+  z-index: 99;
 }
 .hadoken-plasma img {
   height: 160px;
