@@ -5,7 +5,7 @@
 
 @import "compass/reset";
 
-$bg-color-1: #0C0F66;
+$bg-color-1: #020228;
 $bg-color-2: #79CC31;
 $button-bg-color: #CC1E14;
 $button-border: #ff0000;
@@ -109,8 +109,8 @@ body {
 .container {
 	display: grid;
 	grid-template-columns: 1fr;
-	border: solid 20px gold;
-	border-bottom-width: 30px;
+	// border: solid 20px black;
+	// border-bottom-width: 30px;
 }
 
 h1 {
@@ -136,8 +136,11 @@ h1 {
 }
 
 .controls-container {
-	padding-top: 20px;
+	padding: 60px;
 	grid-row-start: 3;
+	background: rgb(4,96,252);
+	background: linear-gradient(0deg, rgba(2,2,40,1) 0%, rgba(12,9,121,1) 72%, rgba(1,1,48,1) 100%);
+	border-bottom: solid 1px #01011c;
 }
 
 #result-container {

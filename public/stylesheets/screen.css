@@ -538,7 +538,7 @@ html, body {
 }
 
 body {
-  background: #0C0F66;
+  background: #020228;
   margin: 0 auto;
   text-align: center;
   font-family: Helvetica, sans-serif;
@@ -560,8 +560,6 @@ body {
 .container {
   display: grid;
   grid-template-columns: 1fr;
-  border: solid 20px gold;
-  border-bottom-width: 30px;
 }
 
 h1 {
@@ -587,8 +585,11 @@ h1 {
 }
 
 .controls-container {
-  padding-top: 20px;
+  padding: 60px;
   grid-row-start: 3;
+  background: #0460fc;
+  background: linear-gradient(0deg, #020228 0%, #0c0979 72%, #010130 100%);
+  border-bottom: solid 1px #01011c;
 }
 
 #result-container {
